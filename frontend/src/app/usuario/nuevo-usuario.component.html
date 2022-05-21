@@ -1,1 +1,67 @@
-<p>nuevo-usuario works!</p>
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-4 mx-auto">
+            <form (ngSubmit)="onCreate()" novalidate #f="ngForm">
+
+                <div class="form-group">
+                    <label for="user">Nombre de Usuario</label>
+                    <input type="text" class="form-control" id="user" name="user" [(ngModel)]="user" required
+                        autocomplete="off">
+                </div>
+
+                <div class="form-group">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" class="form-control" id="nombre" name="nombre" [(ngModel)]="nombre" required
+                        autocomplete="off">
+                </div>
+
+                <div class="form-group">
+                    <label for="apellidos">Apellidos</label>
+                    <input type="text" class="form-control" id="apellidos" name="apellidos" [(ngModel)]="apellidos"
+                        required autocomplete="off">
+                </div>
+
+                <div class="form-group">
+                    <label for="contrasenia">Contraseña</label>
+                    <input type="password" class="form-control" id="contrasenia" name="contrasenia"
+                        [(ngModel)]="contrasenia" required autocomplete="off">
+                </div>
+
+
+                <div class="form-group">
+                    <label for="telefono">Teléfono</label>
+                    <input type="tel" class="form-control" id="telefono" name="telefono" [(ngModel)]="telefono"
+                        pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}" required autocomplete="off">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" id="email" name="email" [(ngModel)]="email" required
+                        autocomplete="off">
+                </div>
+
+                <div class="form-group">
+                    <label for="direccion">Direccion</label>
+                    <input type="text" class="form-control" id="direccion" name="direccion" [(ngModel)]="direccion"
+                        required autocomplete="off">
+                </div>
+
+
+                <div class="form-group">
+                    <label for="foto">Foto</label>
+                    <input class="form-control" id="foto" name="foto" accept=".png, .jpg, .jpeg" [(ngModel)]="foto"
+                        required autocomplete="off" (change)="capturarFoto($event)" type="file" />
+                    <!-- imagen previsualizada-->
+                    <div *ngIf="previsualizacion">
+                        <img width="100px" [src]="previsualizacion" alt="img">
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-outline-success btn-block" (click)="onCreate()">
+                    <i class="far fa-plus-square"></i> Crear</button>
+                <button class="btn btn-outline-primary btn-block" (click)="volver()">
+                    <i class="fas fa-arrow-alt-circle-left"></i> Volver</button>
+            </form>
+        </div>
+    </div>
+</div>

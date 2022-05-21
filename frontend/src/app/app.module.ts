@@ -7,6 +7,9 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
+import { MatIconModule } from '@angular/material/icon';
+
+
 //external
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
@@ -20,7 +23,7 @@ import { DetalleUsuarioComponent } from './usuario/detalle-usuario.component';
     AppComponent,
     ListaUsuarioComponent,
     NuevoUsuarioComponent,
-    EditarUsuarioComponent,
+    EditarUsuarioComponent, 
     DetalleUsuarioComponent
   ],
   imports: [
@@ -30,6 +33,7 @@ import { DetalleUsuarioComponent } from './usuario/detalle-usuario.component';
     FormsModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

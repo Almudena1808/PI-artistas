@@ -4,12 +4,12 @@ export class Usuario {
     nombre?: string;
     apellidos?: string;
     contrasenia?: string;
-    telefono?: number;
+    telefono?: string;
     email?: string;
     direccion?: string;
     foto?: string;
 
-    constructor(user: string, nombre: string, apellidos: string, contrasenia: string, telefono: number, email: string, direccion: string, foto: string) {
+    constructor(user: string, nombre: string, apellidos: string, contrasenia: string, telefono: string, email: string, direccion: string, foto: string) {
         this.user = user;
         this.nombre = nombre;
         this.apellidos = apellidos;

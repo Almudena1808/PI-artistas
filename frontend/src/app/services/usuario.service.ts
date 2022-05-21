@@ -31,4 +31,6 @@ export class UsuarioService {
 
   public delete(id: number): Observable<any> {
     return this.httpClient.delete<any>(`${this.usuarioURL}${id}`);
-  }}
+  }
+
+}
