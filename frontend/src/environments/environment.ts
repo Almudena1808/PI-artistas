@@ -4,7 +4,16 @@
 
 export const environment = {
   production: false,
-  usuarioURL: 'http://localhost:8080/usuario/'
+  usuarioURL: 'http://localhost:8080/usuario/',
+  artistaURL: 'http://localhost:8080/artista/',
+  empresarioURL: 'http://localhost:8080/empresario/',
+  espectaculoURL: 'http://localhost:8080/espectaculo/',
+  contratoURL: 'http://localhost:8080/contrato/',
+  imagenURL: 'http://localhost:8080/imagen/',
+  galeriaURL: 'http://localhost:8080/galeria/',
+
+
+  
 };
 
 /*
