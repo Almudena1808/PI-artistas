@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row mt-5">
         <div class="col-md-4 mx-auto">
-            <form (ngSubmit)="onCreate()" novalidate #f="ngForm">
+            <form novalidate #f="ngForm">
 
                 <div class="form-group">
                     <label for="user">Nombre de Usuario</label>
@@ -53,7 +53,7 @@
                         required autocomplete="off" (change)="capturarFoto($event)" type="file" />
                     <!-- imagen previsualizada-->
                     <div *ngIf="previsualizacion">
-                        <img width="100px" [src]="previsualizacion" alt="img">
+                        <img  [src]="previsualizacion" alt="img">
                     </div>
                 </div>
 

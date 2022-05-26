@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Usuario } from '../models/usuario';
 import { UsuarioService } from '../services/usuario.service';
@@ -10,29 +11,20 @@ import { UsuarioService } from '../services/usuario.service';
 export class ListaUsuarioComponent implements OnInit {
 
   usuarios: Usuario[] = [];
-  public imagen:any;
+  public imagen: any;
 
   listaVacia = undefined;
+  isImageLoading: boolean | undefined;
 
   constructor(
-    private usuarioService: UsuarioService
-    ) { }
+    private usuarioService: UsuarioService,
+    private http: HttpClient
+  ) { }
 
   ngOnInit(): void {
     this.cargarUsuarios();
   }
 
-  foto:any;
-
-  cargarFoto(foto: any){
-    var blob = new Blob([foto], { type: 'image/*' });
-    var url = window.URL.createObjectURL(blob);
-   // window.open(url);
-
-    console.log(url);
-    this.imagen = foto;
-    
-  }
 
   cargarUsuarios(): void {
     this.usuarioService.lista().subscribe(
@@ -47,8 +39,10 @@ export class ListaUsuarioComponent implements OnInit {
   }
 
   borrar(id: number): void {
-   console.log('usuario eliminado');
+    console.log('usuario eliminado');
   }
+
+ 
 
 
 }

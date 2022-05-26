@@ -20,8 +20,9 @@ export class NuevoUsuarioComponent implements OnInit {
   direccion = '';
   foto = '';
 
+  usuario = new Usuario(this.user, this.nombre, this.apellidos, this.contrasenia, this.telefono, this.email, this.direccion, this.foto);
+
   previsualizacion: any;
-  archivos:any=[];
 
   constructor(
     private usuarioService: UsuarioService,
@@ -36,21 +37,27 @@ export class NuevoUsuarioComponent implements OnInit {
       let fileList: FileList = element.files;
       const img = fileList[0];
 
-      const base64 = this.toBase64(fileList[0]);
+      const base64 = this.toBase64(img);
       this.previsualizacion = await base64;
+      console.log('PREVISUALIZACION ' + this.previsualizacion);
       console.log("FileUpload -> files", img);
-
-      this.archivos.push(base64);
-
     }
     else console.log('es nulisimo');
 
   }
 
   onCreate(): void {
+    this.usuario.user =this.user;
+    this.usuario.nombre =this.nombre;
+    this.usuario.apellidos =this.apellidos;
+    this.usuario.contrasenia =this.contrasenia;
+    this.usuario.telefono =this.telefono;
+    this.usuario.email =this.email;
+    this.usuario.direccion =this.direccion;
+    this.usuario.foto =this.previsualizacion;
 
-    const usuario = new Usuario(this.user, this.nombre, this.apellidos, this.contrasenia, this.telefono, this.email, this.direccion, this.foto);
-    this.usuarioService.save(usuario).subscribe(
+
+    this.usuarioService.save(this.usuario).subscribe(
       data => { // si todo va bien se crea el usuario
         this.toastr.success(data.message, 'OK', {
           timeOut: 3000, positionClass: 'toast-top-center'

@@ -33,4 +33,5 @@ export class UsuarioService {
     return this.httpClient.delete<any>(`${this.usuarioURL}${id}`);
   }
 
+
 }
