@@ -17,10 +17,15 @@ import { ListaUsuarioComponent } from './usuario/lista-usuario.component';
 import { NuevoUsuarioComponent } from './usuario/nuevo-usuario.component';
 import { EditarUsuarioComponent } from './usuario/editar-usuario.component';
 import { DetalleUsuarioComponent } from './usuario/detalle-usuario.component';
+import { InicioComponent } from 'src/inicio/inicio.component';
+import { LoginComponent } from 'src/login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    InicioComponent,
+    LoginComponent,
+
     ListaUsuarioComponent,
     NuevoUsuarioComponent,
     EditarUsuarioComponent, 

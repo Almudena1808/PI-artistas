@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="text-center">
+    <h1 class="mt-5">Iniciar Sesión</h1>
+    <img src="../assets/images/logo.png">
+</div>
+    <form class="custom-form form-group" method="post">
+        <label>Usuario</label><br>
+        <input
+          type="text"
+          class="form-control"
+          [(ngModel)]="user"
+          name="user"
+          placeholder="Nombre de usuario"
+          required="required"
+        />
+        <br>
+        <label>Contraseña</label><br>
+
+        <input
+          type="password"
+          class="form-control"
+          [(ngModel)]="contrasenia"
+          name="contrasenia"
+          placeholder="Contraseña"
+          required="required"
+        />
+        <br>
+        <button class="btn" type="submit" (click)="login()">Iniciar Sesión</button>
+      </form>
+</div>
