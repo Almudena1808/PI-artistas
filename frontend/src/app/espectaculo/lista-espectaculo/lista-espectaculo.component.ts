@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Espectaculo } from 'src/app/models/espectaculo';
 import { EspectaculoService } from 'src/app/services/espectaculo.service';
+import { TokenService } from 'src/app/services/token.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -18,12 +19,14 @@ export class ListaEspectaculoComponent implements OnInit {
 
   constructor(
     private espectaculoService: EspectaculoService,
-    private router: Router
+    private router: Router,
+    private tokenService: TokenService
 
   ) { }
 
   ngOnInit(): void {
     this.cargarEspectaculos();
+    this.tokenService.isArtista();
 
   }
 

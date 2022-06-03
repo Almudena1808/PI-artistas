@@ -9,10 +9,9 @@ import { FormsModule } from '@angular/forms';
 
 import { MatIconModule } from '@angular/material/icon';
 
+import { interceptorProvider } from './interceptors/espectaculo.interceptor';
 
-//external
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ToastrModule } from 'ngx-toastr';
+
 import { ListaUsuarioComponent } from './usuario/lista-usuario.component';
 import { NuevoUsuarioComponent } from './usuario/nuevo-usuario.component';
 import { EditarUsuarioComponent } from './usuario/editar-usuario.component';
@@ -25,6 +24,10 @@ import { NuevoEspectaculoComponent } from './espectaculo/nuevo-espectaculo/nuevo
 import { EditarEspectaculoComponent } from './espectaculo/editar-espectaculo/editar-espectaculo.component';
 import { DetalleEspectaculoComponent } from './espectaculo/detalle-espectaculo/detalle-espectaculo.component';
 import { LoginComponent } from './auth/login/login.component';
+
+//external
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -52,7 +55,7 @@ import { LoginComponent } from './auth/login/login.component';
     ToastrModule.forRoot(),
     MatIconModule
   ],
-  providers: [],
+  providers: [interceptorProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

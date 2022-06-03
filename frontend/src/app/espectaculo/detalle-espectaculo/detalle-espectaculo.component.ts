@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Espectaculo } from 'src/app/models/espectaculo';
 import { EspectaculoService } from 'src/app/services/espectaculo.service';
+import { TokenService } from 'src/app/services/token.service';
 
 @Component({
   selector: 'app-detalle-espectaculo',
@@ -10,12 +11,16 @@ import { EspectaculoService } from 'src/app/services/espectaculo.service';
   styleUrls: ['./detalle-espectaculo.component.css']
 })
 export class DetalleEspectaculoComponent implements OnInit {
-  espectaculo: Espectaculo = new Espectaculo("","",0);
+
+  idUser = this.tokenService.getIdUsuario();
+
+  espectaculo: Espectaculo = new Espectaculo("","","",this.idUser);
 
   constructor(
     private espectaculoService: EspectaculoService,
     private activatedRoute: ActivatedRoute,
     private toastr: ToastrService,
+    private tokenService: TokenService,
     private router: Router
   ) { }
 

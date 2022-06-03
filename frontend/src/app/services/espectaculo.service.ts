@@ -24,8 +24,8 @@ export class EspectaculoService {
     return this.httpClient.post<any>(`${this.espectaculoURL}`, espectaculo);
   }
 
-  public update(id: number, usuario: Espectaculo): Observable<any> {
-    return this.httpClient.put<any>(`${this.espectaculoURL}${id}`, usuario);
+  public update(id: number, espectaculo: Espectaculo): Observable<any> {
+    return this.httpClient.put<any>(`${this.espectaculoURL}${id}`, espectaculo);
   }
 
   public delete(id: number): Observable<any> {

@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Espectaculo } from 'src/app/models/espectaculo';
 import { EspectaculoService } from 'src/app/services/espectaculo.service';
+import { TokenService } from 'src/app/services/token.service';
 
 @Component({
   selector: 'app-nuevo-espectaculo',
@@ -12,16 +13,18 @@ import { EspectaculoService } from 'src/app/services/espectaculo.service';
 export class NuevoEspectaculoComponent implements OnInit {
   nombre = '';
   descripcion = '';
-  precio = 0;
+  precio = '';
+  artista = this.tokenService.getIdUsuario() ;
   
   foto = '';
 
-  espectaculo = new Espectaculo(this.nombre, this.descripcion, this.precio);
+  espectaculo = new Espectaculo(this.nombre, this.descripcion, this.precio, this.artista);
 
 
   constructor(
     private espectaculoService: EspectaculoService,
     private toastr: ToastrService,
+    private tokenService: TokenService,
     private router: Router
   ) { }
 
@@ -30,10 +33,15 @@ export class NuevoEspectaculoComponent implements OnInit {
     this.espectaculo.descripcion =this.descripcion;
     this.espectaculo.nombre =this.nombre;
     this.espectaculo.precio =this.precio;
+    console.log('id usuario'+this.artista);
+
+   // this.espectaculo.artistaId= this.artista;
+    
 
 
     this.espectaculoService.save(this.espectaculo).subscribe(
       data => { // si todo va bien se crea el usuario
+        console.log('datos: '+ data);
         this.toastr.success(data.message, 'OK', {
           timeOut: 3000, positionClass: 'toast-top-center'
         });
