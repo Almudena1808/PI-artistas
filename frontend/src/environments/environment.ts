@@ -5,6 +5,7 @@
 export const environment = {
   production: false,
   usuarioURL: 'http://localhost:8080/usuario/',
+  authURL: 'http://localhost:8080/auth/',
   artistaURL: 'http://localhost:8080/artista/',
   empresarioURL: 'http://localhost:8080/empresario/',
   espectaculoURL: 'http://localhost:8080/espectaculo/',

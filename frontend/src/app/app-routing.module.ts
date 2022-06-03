@@ -1,23 +1,33 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { InicioComponent } from 'src/inicio/inicio.component';
-import { LoginComponent } from 'src/login/login.component';
-import { RegisterComponent } from 'src/register/register.component';
+import { LoginComponent } from './auth/login/login.component';
+import { RegistroComponent } from './auth/registro/registro.component';
+import { DetalleEspectaculoComponent } from './espectaculo/detalle-espectaculo/detalle-espectaculo.component';
+import { EditarEspectaculoComponent } from './espectaculo/editar-espectaculo/editar-espectaculo.component';
+import { ListaEspectaculoComponent } from './espectaculo/lista-espectaculo/lista-espectaculo.component';
+import { NuevoEspectaculoComponent } from './espectaculo/nuevo-espectaculo/nuevo-espectaculo.component';
+import { LoginGuard } from './guards/login.guard';
+import { HomeComponent } from './home/home.component';
 import { DetalleUsuarioComponent } from './usuario/detalle-usuario.component';
 import { EditarUsuarioComponent } from './usuario/editar-usuario.component';
 import { ListaUsuarioComponent } from './usuario/lista-usuario.component';
 import { NuevoUsuarioComponent } from './usuario/nuevo-usuario.component';
 
 const routes: Routes = [
-  {path: '', component: InicioComponent},
-  {path: 'login', component: LoginComponent},
-  {path: 'register', component: RegisterComponent},
+  {path: '', component: HomeComponent},
+  {path: 'login', component: LoginComponent, canActivate:[LoginGuard]},// protejo la ruta para que una vex que estes logueado no puedas accesar otra vez
+  {path: 'registro', component: RegistroComponent, canActivate:[LoginGuard]},// protejo la ruta para que una vex que estes logueado no puedas accesar otra vez
 
   {path: 'listaUsuario', component: ListaUsuarioComponent},
+  {path: 'usuariodetalle/:id', component: DetalleUsuarioComponent},
+  {path: 'usuarionuevo', component: NuevoUsuarioComponent},
+  {path: 'usuarioeditar/:id', component: EditarUsuarioComponent},
 
-  {path: 'detalle/:id', component: DetalleUsuarioComponent},
-  {path: 'nuevo', component: NuevoUsuarioComponent},
-  {path: 'editar/:id', component: EditarUsuarioComponent},
+  {path: 'listaEsp', component: ListaEspectaculoComponent},
+  {path: 'espdetalle/:id', component: DetalleEspectaculoComponent},
+  {path: 'espnuevo', component: NuevoEspectaculoComponent},
+  {path: 'espeditar/:id', component: EditarEspectaculoComponent},
+
   {path: '**', redirectTo: '', pathMatch: 'full'}
 
 ];

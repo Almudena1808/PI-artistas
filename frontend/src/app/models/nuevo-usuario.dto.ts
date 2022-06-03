@@ -1,5 +1,5 @@
-export class Usuario {
-    id?: number;
+export class NuevoUsuarioDto {
+
     user: string;
     nombre: string;
     apellidos: string;
@@ -18,9 +18,6 @@ export class Usuario {
         this.email = email;
         this.direccion = direccion;
         this.foto = foto;
-
     }
-
-    
 
 }

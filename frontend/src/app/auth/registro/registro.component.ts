@@ -1,16 +1,15 @@
-import { Component, OnInit, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { Usuario } from '../models/usuario';
-import { UsuarioService } from '../services/usuario.service';
-
+import { Usuario } from 'src/app/models/usuario';
+import { UsuarioService } from 'src/app/services/usuario.service';
 
 @Component({
-  selector: 'app-nuevo-usuario',
-  templateUrl: './nuevo-usuario.component.html',
-  styleUrls: ['./nuevo-usuario.component.css']
+  selector: 'app-registro',
+  templateUrl: './registro.component.html',
+  styleUrls: ['./registro.component.css']
 })
-export class NuevoUsuarioComponent implements OnInit {
+export class RegistroComponent implements OnInit {
   user = '';
   nombre = '';
   apellidos = '';
@@ -22,6 +21,7 @@ export class NuevoUsuarioComponent implements OnInit {
 
   usuario = new Usuario(this.user, this.nombre, this.apellidos, this.contrasenia, this.telefono, this.email, this.direccion, this.foto);
 
+
   previsualizacion: any;
 
   constructor(
@@ -30,7 +30,7 @@ export class NuevoUsuarioComponent implements OnInit {
     private router: Router
   ) { }
 
-
+  
   async capturarFoto(event: Event) {
     const element = event.currentTarget as HTMLInputElement;
     if (element.files!) {
@@ -45,7 +45,6 @@ export class NuevoUsuarioComponent implements OnInit {
     else console.log('es nulisimo');
 
   }
-
   onCreate(): void {
     this.usuario.user =this.user;
     this.usuario.nombre =this.nombre;
@@ -73,7 +72,7 @@ export class NuevoUsuarioComponent implements OnInit {
   }
 
   volver(): void {
-    this.router.navigate(['listaUsuario/']);
+    this.router.navigate(['/']);
   }
 
 
