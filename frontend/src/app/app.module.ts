@@ -28,6 +28,8 @@ import { LoginComponent } from './auth/login/login.component';
 //external
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { UsuarioElegirResgistroComponent } from './usuario-elegir-resgistro/usuario-elegir-resgistro.component';
+import { RegistroArtistaComponent } from './auth/registro-artista/registro-artista.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +45,7 @@ import { ToastrModule } from 'ngx-toastr';
     ListaEspectaculoComponent, 
     NuevoEspectaculoComponent, 
     EditarEspectaculoComponent, 
-    DetalleEspectaculoComponent,
+    DetalleEspectaculoComponent, UsuarioElegirResgistroComponent, RegistroArtistaComponent,
     
   ],
   imports: [

@@ -40,6 +40,6 @@ export class DetalleEspectaculoComponent implements OnInit {
   }
 
   volver(): void {
-    this.router.navigate(['/listEsp']);
+    this.router.navigate(['listaEsp/']);
   }
 }

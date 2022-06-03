@@ -2,14 +2,15 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Usuario } from 'src/app/models/usuario';
-import { UsuarioService } from 'src/app/services/usuario.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
-  selector: 'app-registro',
-  templateUrl: './registro.component.html',
-  styleUrls: ['./registro.component.css']
+  selector: 'app-registro-artista',
+  templateUrl: './registro-artista.component.html',
+  styleUrls: ['./registro-artista.component.css']
 })
-export class RegistroComponent implements OnInit {
+export class RegistroArtistaComponent implements OnInit {
+
   user = '';
   nombre = '';
   apellidos = '';
@@ -18,16 +19,15 @@ export class RegistroComponent implements OnInit {
   email = '';
   direccion = '';
   foto = '';
-  fechNac = "";
-  organizacion="";
-
+  fechNac= '';
+  especializacion= '';
   usuario = new Usuario(this.user, this.nombre, this.apellidos, this.contrasenia, this.telefono, this.email, this.direccion, this.foto);
 
 
   previsualizacion: any;
 
   constructor(
-    private usuarioService: UsuarioService,
+    private authService: AuthService,
     private toastr: ToastrService,
     private router: Router
   ) { }
@@ -58,7 +58,7 @@ export class RegistroComponent implements OnInit {
     this.usuario.foto =this.previsualizacion;
 
 
-    this.usuarioService.save(this.usuario).subscribe(
+    this.authService.registro(this.usuario).subscribe(
       data => { // si todo va bien se crea el usuario
         this.toastr.success(data.message, 'OK', {
           timeOut: 3000, positionClass: 'toast-top-center'
