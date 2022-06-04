@@ -13,7 +13,6 @@ import { UsuarioElegirResgistroComponent } from './usuario-elegir-resgistro/usua
 import { DetalleUsuarioComponent } from './usuario/detalle-usuario.component';
 import { EditarUsuarioComponent } from './usuario/editar-usuario.component';
 import { ListaUsuarioComponent } from './usuario/lista-usuario.component';
-import { NuevoUsuarioComponent } from './usuario/nuevo-usuario.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -24,7 +23,6 @@ const routes: Routes = [
 
   {path: 'listaUsuario', component: ListaUsuarioComponent},
   {path: 'usuariodetalle/:id', component: DetalleUsuarioComponent},
-  {path: 'usuarionuevo', component: NuevoUsuarioComponent},
   {path: 'usuarioeditar/:id', component: EditarUsuarioComponent},
 
   {path: 'listaEsp', component: ListaEspectaculoComponent},

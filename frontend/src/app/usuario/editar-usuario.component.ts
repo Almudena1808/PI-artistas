@@ -10,7 +10,7 @@ import { UsuarioService } from '../services/usuario.service';
   styleUrls: ['./editar-usuario.component.css']
 })
 export class EditarUsuarioComponent implements OnInit {
-  usuario: Usuario = new Usuario("","","","","","","","");
+  usuario: Usuario = new Usuario("","","","","","","","","","","","");
 
   constructor( 
     private usuarioService: UsuarioService,

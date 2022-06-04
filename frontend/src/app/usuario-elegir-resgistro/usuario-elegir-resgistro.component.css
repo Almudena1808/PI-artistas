@@ -1,0 +1,31 @@
+.btn{
+    margin-top: 30px;
+    color: white;
+    border: #900c3f;
+    background-color: #C70039;
+    width: 100%;
+}
+.btn:hover{
+    background-color: #900c3f;
+    color: #ffc30f
+}
+
+.titulo{
+    margin-top: 50px;
+    text-align: center;
+    color:white
+}
+.container{
+    background-color: #ff5733 ;
+    border: #C70039 solid 2px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    height: 39em;
+}
+
+.logo{
+    margin-top: 100px;
+}
+
+h1{
+    font-size: 40px;
+}

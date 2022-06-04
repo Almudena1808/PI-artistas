@@ -1,14 +1,26 @@
 <app-menu></app-menu>
 
-<div class="fond">
-    <div class="titulo">
-        <h1>¿QUÉ TIPO DE USUARIO ERES?</h1>
+<div class="container mt-3">
+    <div class="row d-flex ">
+        <div class="col-12 titulo">
+                <h1>¿QUÉ TIPO DE USUARIO ERES?</h1>
+        </div>
     </div>
-    <div class="logo">
-        <img src="../../assets/images/logo.png" width="200px" height="200px">
+    <div class="row  justify-content-center">
+        <div class="logo">
+            <img src="../../assets/images/logo.png" width="200px" height="200px">
+
+        </div>
     </div>
-    <div class="botones">
-        <button class="btn  btn-outline-success"  routerLink="/registroArtista">ARTISTA</button>
-        <button class="btn  btn-outline-success"  routerLink="/registro">EMPRESARIO</button>
+
+    <div class="row  justify-content-around botones">
+        <div class="col-2">
+            <button class="btn  btn-outline-success btn-block"  routerLink="/registroArtista">ARTISTA</button>
+
+        </div>
+        <div class="col-2">
+            <button class="btn  btn-outline-success btn-block"  routerLink="/registro">EMPRESARIO</button>
+
+        </div>
     </div>
 </div>

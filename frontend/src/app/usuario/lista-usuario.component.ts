@@ -19,6 +19,7 @@ export class ListaUsuarioComponent implements OnInit {
 
   listaVacia = undefined;
 
+
   constructor(
     private usuarioService: UsuarioService,
     private http: HttpClient

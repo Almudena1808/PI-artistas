@@ -16,6 +16,7 @@ export class ListaEspectaculoComponent implements OnInit {
   espectaculos: Espectaculo[] = [];
   listaVacia = undefined;
   isImageLoading: boolean | undefined;
+  isArtista: boolean = false;
 
   constructor(
     private espectaculoService: EspectaculoService,
@@ -26,7 +27,7 @@ export class ListaEspectaculoComponent implements OnInit {
 
   ngOnInit(): void {
     this.cargarEspectaculos();
-    this.tokenService.isArtista();
+    this.isArtista = this.tokenService.isArtista();
 
   }
 
@@ -69,9 +70,4 @@ export class ListaEspectaculoComponent implements OnInit {
     });
   }
 
-
-
-  volver(): void {
-    this.router.navigate(['/']);
-  }
 }

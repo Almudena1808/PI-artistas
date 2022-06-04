@@ -11,6 +11,8 @@ export class MenuComponent implements OnInit {
 
   user: string ="";
   isLogged: boolean = false;
+  isArtista: boolean = false;
+
 
   constructor(
     private tokenService: TokenService,
@@ -19,6 +21,8 @@ export class MenuComponent implements OnInit {
 
   ngOnInit(): void {
     this.user = this.tokenService.getNombreUser();
+    this.isLogged = this.tokenService.isLogged();
+    this.isArtista = this.tokenService.isArtista();
     this.tokenService.isLogged() ? this.isLogged= true: this.isLogged=false;
   }
 

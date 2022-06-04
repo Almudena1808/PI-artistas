@@ -20,18 +20,26 @@ img{
 .btn{
     margin-top: 30px;
     color: white;
+    border: #900c3f;
     background-color: #C70039;
     width: 100%;
 }
 
 .subir{
-    padding: 5px 10px;
+
+    border-radius: 6px;
+    padding: 8px 10px;
     background: #C70039;
     color:#fff;
     border:0px solid #fff;
 }
  
 .subir:hover{
-    color:#fff;
-    background: #f7cb15;
+    background-color: #900c3f;
+    color: #ffc30f
+}
+
+.btn:hover{
+    background-color: #900c3f;
+    color: #ffc30f
 }

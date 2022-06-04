@@ -13,7 +13,6 @@ import { interceptorProvider } from './interceptors/espectaculo.interceptor';
 
 
 import { ListaUsuarioComponent } from './usuario/lista-usuario.component';
-import { NuevoUsuarioComponent } from './usuario/nuevo-usuario.component';
 import { EditarUsuarioComponent } from './usuario/editar-usuario.component';
 import { DetalleUsuarioComponent } from './usuario/detalle-usuario.component';
 import { HomeComponent } from './home/home.component';
@@ -35,7 +34,6 @@ import { RegistroArtistaComponent } from './auth/registro-artista/registro-artis
   declarations: [
     AppComponent,
     ListaUsuarioComponent,
-    NuevoUsuarioComponent,
     EditarUsuarioComponent, 
     DetalleUsuarioComponent, 
     HomeComponent, 

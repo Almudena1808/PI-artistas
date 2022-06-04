@@ -18,10 +18,12 @@ export class RegistroComponent implements OnInit {
   email = '';
   direccion = '';
   foto = '';
-  fechNac = "";
-  organizacion="";
+  fechNac= '';
+  especializacion= '';
+  descripcion= '';
+  organizacion= '';
 
-  usuario = new Usuario(this.user, this.nombre, this.apellidos, this.contrasenia, this.telefono, this.email, this.direccion, this.foto);
+  usuario = new Usuario(this.user, this.nombre, this.apellidos, this.contrasenia, this.telefono, this.email, this.direccion, this.foto, this.fechNac, this.especializacion,this.descripcion,this.organizacion);
 
 
   previsualizacion: any;
@@ -56,6 +58,10 @@ export class RegistroComponent implements OnInit {
     this.usuario.email =this.email;
     this.usuario.direccion =this.direccion;
     this.usuario.foto =this.previsualizacion;
+    this.usuario.fechNac =this.fechNac;
+    this.usuario.especializacion =this.especializacion;
+    this.usuario.descripcion =this.descripcion;
+    this.usuario.organizacion =this.organizacion;
 
 
     this.usuarioService.save(this.usuario).subscribe(
@@ -74,7 +80,7 @@ export class RegistroComponent implements OnInit {
   }
 
   volver(): void {
-    this.router.navigate(['/']);
+    this.router.navigate(['/eligeRol']);
   }
 
 

@@ -1,8 +1,15 @@
 <app-menu></app-menu>
 
-<div class="container">
+<div class="container mt-3">
+
+    <div class="row mt-4">
+        <div class="col-12 text-aling-center">
+            <h2 class="text-center">Registro de artista</h2>
+        </div>
+    </div>
     <form novalidate #f="ngForm">
-        <div class="row mt-5">
+        <div class="row mt-3">
+
             <div class="col-6">
                 <div class="row">
 
@@ -74,6 +81,15 @@
                 </div>
 
                 <div class="row">
+                    <div class="col-12 form-group">
+                        <label for="descripcion">Descripción</label>
+                        <textarea class="form-control"  id="descripcion" name="descripcion" [(ngModel)]="descripcion" col="50" rows="6"></textarea>
+                        
+
+                    </div>
+                </div>
+
+                <div class="row">
                     <div class="col-12">
                         <label for="foto">Foto</label>
                     </div>
@@ -93,11 +109,19 @@
         </div>
 
 
-
-        <button type="submit" class="btn btn-outline-success btn-block" (click)="onCreate()">
-            <i class="far fa-plus-square"></i> Crear</button>
-        <button class="btn btn-outline-primary btn-block" (click)="volver()">
-            <i class="fas fa-arrow-alt-circle-left"></i> Volver</button>
+        <div class="row  justify-content-between">
+            <div class="col-2">
+                <button class="btn volver btn-outline-success btn-block" (click)="volver()">
+                    <i class="fas fa-arrow-alt-circle-left"></i> Volver</button>
+            </div>
+            <div class="col-2">
+                <button type="submit" class="btn registrar btn-outline-success " (click)="onCreate()">
+                    <i class="far fa-plus-square"></i> Registrar</button>
+            </div>
+           
+           
+        </div>
+        
     </form>
 </div>
 <br><br>
