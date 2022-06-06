@@ -2,8 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Espectaculo } from 'src/app/models/espectaculo';
+import { Usuario } from 'src/app/models/usuario';
 import { EspectaculoService } from 'src/app/services/espectaculo.service';
 import { TokenService } from 'src/app/services/token.service';
+import { UsuarioService } from 'src/app/services/usuario.service';
 
 @Component({
   selector: 'app-nuevo-espectaculo',
@@ -14,15 +16,17 @@ export class NuevoEspectaculoComponent implements OnInit {
   nombre = '';
   descripcion = '';
   precio = '';
-  artista = this.tokenService.getIdUsuario() ;
-  
+  user = this.tokenService.getIdUsuario();
+  usuario = this.usuarioService.detail(this.user);
+
   foto = '';
 
-  espectaculo = new Espectaculo(this.nombre, this.descripcion, this.precio, this.artista);
+  espectaculo = new Espectaculo(this.nombre, this.descripcion, this.precio, this.user);
 
 
   constructor(
     private espectaculoService: EspectaculoService,
+    private usuarioService: UsuarioService,
     private toastr: ToastrService,
     private tokenService: TokenService,
     private router: Router
@@ -33,9 +37,9 @@ export class NuevoEspectaculoComponent implements OnInit {
     this.espectaculo.descripcion =this.descripcion;
     this.espectaculo.nombre =this.nombre;
     this.espectaculo.precio =this.precio;
-    console.log('id usuario'+this.artista);
+    console.log('id usuario'+this.user);
 
-   // this.espectaculo.artistaId= this.artista;
+   // this.espectaculo.usuario= this.user;
     
 
 

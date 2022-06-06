@@ -7,6 +7,7 @@ import { DetalleEspectaculoComponent } from './espectaculo/detalle-espectaculo/d
 import { EditarEspectaculoComponent } from './espectaculo/editar-espectaculo/editar-espectaculo.component';
 import { ListaEspectaculoComponent } from './espectaculo/lista-espectaculo/lista-espectaculo.component';
 import { NuevoEspectaculoComponent } from './espectaculo/nuevo-espectaculo/nuevo-espectaculo.component';
+import { EspectaculoGuard } from './guards/espectaculo.guard';
 import { LoginGuard } from './guards/login.guard';
 import { HomeComponent } from './home/home.component';
 import { UsuarioElegirResgistroComponent } from './usuario-elegir-resgistro/usuario-elegir-resgistro.component';
@@ -25,10 +26,10 @@ const routes: Routes = [
   {path: 'usuariodetalle/:id', component: DetalleUsuarioComponent},
   {path: 'usuarioeditar/:id', component: EditarUsuarioComponent},
 
-  {path: 'listaEsp', component: ListaEspectaculoComponent},
-  {path: 'espdetalle/:id', component: DetalleEspectaculoComponent},
-  {path: 'espnuevo', component: NuevoEspectaculoComponent},
-  {path: 'espeditar/:id', component: EditarEspectaculoComponent},
+  {path: 'listaEsp', component: ListaEspectaculoComponent, canActivate:[EspectaculoGuard], data: {expectedRol: ['artista','empresario']}},
+  {path: 'espdetalle/:id', component: DetalleEspectaculoComponent, canActivate:[EspectaculoGuard], data: {expectedRol: ['artista','empresario']}},
+  {path: 'espnuevo', component: NuevoEspectaculoComponent, canActivate:[EspectaculoGuard], data: {expectedRol: ['artista']}},
+  {path: 'espeditar/:id', component: EditarEspectaculoComponent, canActivate:[EspectaculoGuard], data: {expectedRol: ['artista']}},
 
   {path: '**', redirectTo: '', pathMatch: 'full'}
 

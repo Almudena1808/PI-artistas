@@ -115,7 +115,7 @@
                     <i class="fas fa-arrow-alt-circle-left"></i> Volver</button>
             </div>
             <div class="col-2">
-                <button type="submit" class="btn registrar btn-outline-success " (click)="onCreate()">
+                <button type="submit" class="btn registrar btn-outline-success "[disabled]="!f.valid"  (click)="onCreate()">
                     <i class="far fa-plus-square"></i> Registrar</button>
             </div>
            

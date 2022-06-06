@@ -36,7 +36,7 @@
 -->
                 <button type="submit" class="btn btn-outline-success btn-block" (click)="onCreate()">
                     <i class="far fa-plus-square"></i> Crear</button>
-                <button class="btn btn-outline-primary btn-block" (click)="volver()">
+                <button class="btn btn-outline-primary btn-block" [disabled]="!f.valid"  (click)="volver()">
                     <i class="fas fa-arrow-alt-circle-left"></i> Volver</button>
             </form>
         </div>
