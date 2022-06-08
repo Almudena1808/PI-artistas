@@ -8,8 +8,6 @@ export const environment = {
   authURL: 'http://localhost:8080/auth/',
   espectaculoURL: 'http://localhost:8080/espectaculo/',
   contratoURL: 'http://localhost:8080/contrato/',
-  imagenURL: 'http://localhost:8080/imagen/',
-  galeriaURL: 'http://localhost:8080/galeria/',
 
 
   

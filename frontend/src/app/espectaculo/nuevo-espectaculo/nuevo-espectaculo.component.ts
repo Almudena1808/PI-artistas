@@ -19,9 +19,11 @@ export class NuevoEspectaculoComponent implements OnInit {
   user = this.tokenService.getIdUsuario();
   usuario = this.usuarioService.detail(this.user);
 
-  foto = '';
+  previsualizacion: any;
 
-  espectaculo = new Espectaculo(this.nombre, this.descripcion, this.precio, this.user);
+  imagen = '';
+
+  espectaculo = new Espectaculo(this.nombre, this.descripcion, this.precio, this.user,this.imagen);
 
 
   constructor(
@@ -32,20 +34,46 @@ export class NuevoEspectaculoComponent implements OnInit {
     private router: Router
   ) { }
 
-  
-  onCreate(): void {
-    this.espectaculo.descripcion =this.descripcion;
-    this.espectaculo.nombre =this.nombre;
-    this.espectaculo.precio =this.precio;
-    console.log('id usuario'+this.user);
 
-   // this.espectaculo.usuario= this.user;
-    
+  async capturarFoto(event: Event) {
+    const element = event.currentTarget as HTMLInputElement;
+    if (element.files!) {
+      let fileList: FileList = element.files;
+      const img = fileList[0];
+
+      const base64 = this.toBase64(img);
+      this.previsualizacion = await base64;
+      console.log('PREVISUALIZACION ' + this.previsualizacion);
+      console.log("FileUpload -> files", img);
+    }
+    else console.log('es nulisimo');
+
+  }
+
+  toBase64 = (file: Blob) => new Promise((resolve: any) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => {
+      resolve(reader.result)
+    };
+
+  });
+
+
+
+  onCreate(): void {
+    this.espectaculo.descripcion = this.descripcion;
+    this.espectaculo.nombre = this.nombre;
+    this.espectaculo.precio = this.precio;
+    console.log('id usuario' + this.user);
+    this.espectaculo.usuario = this.user;
+    this.espectaculo.imagen =this.previsualizacion;
+
+
 
 
     this.espectaculoService.save(this.espectaculo).subscribe(
-      data => { // si todo va bien se crea el usuario
-        console.log('datos: '+ data);
+      data => { // si todo va bien se crea el espectaculo
         this.toastr.success(data.message, 'OK', {
           timeOut: 3000, positionClass: 'toast-top-center'
         });
@@ -59,6 +87,7 @@ export class NuevoEspectaculoComponent implements OnInit {
     );
   }
 
+ 
   volver(): void {
     this.router.navigate(['/listaEsp']);
   }

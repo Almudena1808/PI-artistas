@@ -14,7 +14,9 @@
                     <div class="col-12 form-group">
                         <label for="user">Nombre de Usuario</label>
                         <input type="text" class="form-control" id="user" name="user" [(ngModel)]="user" required
-                            autocomplete="off">
+                            minlength="4" autocomplete="off">
+                        <span>Mínimo 4 carácteres</span>
+
                     </div>
                 </div>
                 <div class="row">
@@ -22,6 +24,8 @@
                         <label for="nombre">Nombre</label>
                         <input type="text" class="form-control" id="nombre" name="nombre" [(ngModel)]="nombre" required
                             autocomplete="off">
+
+
                     </div>
 
                     <div class="col-6 form-group">
@@ -29,18 +33,23 @@
                         <label for="apellidos">Apellidos</label>
                         <input type="text" class="form-control" id="apellidos" name="apellidos" [(ngModel)]="apellidos"
                             required autocomplete="off">
+
+
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-6 form-group">
                         <label for="telefono">Teléfono</label>
                         <input type="tel" class="form-control" id="telefono" name="telefono" [(ngModel)]="telefono"
-                            pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}" required autocomplete="off">
+                            pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}" placeholder="999-999-999" required autocomplete="off">
+                          
+
+
                     </div>
                     <div class="col-6 form-group">
                         <label for="fechNac">Fecha de nacimiento</label>
                         <input type="date" class="form-control" id="fechNac" name="fechNac" [(ngModel)]="fechNac"
-                            required autocomplete="off">
+                            required autocomplete="off" >
                     </div>
                 </div>
                 <div class="row">
@@ -48,7 +57,8 @@
                     <div class="col-12 form-group">
                         <label for="email">Email</label>
                         <input type="email" class="form-control" id="email" name="email" [(ngModel)]="email" required
-                            autocomplete="off">
+                            autocomplete="off"  placeholder="aaa@aaa.com">
+
                     </div>
 
                 </div>
@@ -73,7 +83,7 @@
                     <div class="col-12 form-group">
                         <label for="organizacion">Organización/Empresa</label>
                         <input class="form-control" id="organizacion" name="organizacion" [(ngModel)]="organizacion"
-                            type="text" />
+                            type="text" required="" />
 
                     </div>
                 </div>
@@ -104,11 +114,11 @@
                     <i class="fas fa-arrow-alt-circle-left"></i> Volver</button>
             </div>
             <div class="col-2">
-                <button type="submit" class="btn registrar btn-outline-success btn-block " [disabled]="!f.valid" (click)="onCreate()">
+                <button type="submit" class="btn registrar btn-outline-success btn-block " [disabled]="!f.valid"(click)="onCreate()">
                     <i class="far fa-plus-square"></i> Registrar</button>
             </div>
-           
-           
+
+
         </div>
     </form>
 </div>
@@ -119,4 +129,5 @@
         var pdrs = document.getElementById('foto').files[0].name;
         document.getElementById('info').innerHTML = pdrs;
     }
+
 </script>

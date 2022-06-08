@@ -21,3 +21,43 @@
         </div>
     </div>
 </div>
+
+<div class="container">
+    <div class="row mt-5">
+        <div class="col">
+            <h1 class="titulo text-center">{{espectaculo.nombre}}</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+          <img width="100%" height="200px" src="">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+          <p>{{espectaculo.descripcion}}</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <button class="btn volver btn-outline-success btn-block" (click)="volver()">
+                <i class="fas fa-arrow-alt-circle-left"></i> Volver</button>
+        
+        </div>
+        <div class="col">
+            <p>{{espectaculo.precio}}</p>
+          </div>
+          <div class="col"  *ngIf="!isArtista">
+            <button class="btn volver btn-outline-success btn-block" routerLink="/cont/{{espectaculo.id}}">
+               Contratar</button>
+        
+          </div>
+          <div class="col"  *ngIf="isArtista">
+            <button class="btn volver btn-outline-success btn-block"  routerLink="/espeditar/{{espectaculo.id}}">
+              Editar</button>
+        
+          </div>
+    </div>
+</div>

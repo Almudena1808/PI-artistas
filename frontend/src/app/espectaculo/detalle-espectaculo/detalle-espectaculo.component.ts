@@ -12,11 +12,12 @@ import { TokenService } from 'src/app/services/token.service';
   styleUrls: ['./detalle-espectaculo.component.css']
 })
 export class DetalleEspectaculoComponent implements OnInit {
-
+id: number=0;
   idUser = this.tokenService.getIdUsuario();
 
+  isArtista: boolean = false;
 
-  espectaculo: Espectaculo = new Espectaculo("","","",this.idUser);
+  espectaculo: Espectaculo = new Espectaculo("","","",this.idUser,"");
 
   constructor(
     private espectaculoService: EspectaculoService,
@@ -27,6 +28,9 @@ export class DetalleEspectaculoComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.isArtista = this.tokenService.isArtista();
+
+
     const id = this.activatedRoute.snapshot.params['id'];
     this.espectaculoService.detail(id).subscribe(
       data => {
@@ -44,4 +48,9 @@ export class DetalleEspectaculoComponent implements OnInit {
   volver(): void {
     this.router.navigate(['listaEsp/']);
   }
+
+  contratar(id:number){
+    this.router.navigate(['/id']);
+  }
+
 }

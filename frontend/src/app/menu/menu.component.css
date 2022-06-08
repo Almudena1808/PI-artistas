@@ -6,8 +6,6 @@ nav{
 }
 .nombreUser{
     color: white;
-    margin-top: 15px;
-    margin-right: 20px;
 }
 a{
     color: white;
@@ -15,4 +13,20 @@ a{
 
 a:hover{
     color: #ffc30f;
+}
+
+.logout{
+    color: #900c3f;
+}
+.login{
+    border-radius: 15px;
+    border: 1px solid #900c3f;
+    color: white;
+    background-color: #ff5733;
+}
+ .login:hover{
+    border-radius: 15px;
+    border: 1px solid #C70039;
+    color: #ffc30f;
+    background-color: #900c3f;
 }

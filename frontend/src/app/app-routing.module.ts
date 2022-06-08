@@ -10,8 +10,10 @@ import { NuevoEspectaculoComponent } from './espectaculo/nuevo-espectaculo/nuevo
 import { EspectaculoGuard } from './guards/espectaculo.guard';
 import { LoginGuard } from './guards/login.guard';
 import { HomeComponent } from './home/home.component';
+import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.component';
 import { UsuarioElegirResgistroComponent } from './usuario-elegir-resgistro/usuario-elegir-resgistro.component';
 import { DetalleUsuarioComponent } from './usuario/detalle-usuario.component';
+import { EditArtComponent } from './usuario/edit-art/edit-art.component';
 import { EditarUsuarioComponent } from './usuario/editar-usuario.component';
 import { ListaUsuarioComponent } from './usuario/lista-usuario.component';
 
@@ -25,6 +27,11 @@ const routes: Routes = [
   {path: 'listaUsuario', component: ListaUsuarioComponent},
   {path: 'usuariodetalle/:id', component: DetalleUsuarioComponent},
   {path: 'usuarioeditar/:id', component: EditarUsuarioComponent},
+  {path: 'arteditar/:id', component: EditArtComponent},
+
+
+  {path: 'perfil/:id', component:PerfilUsuarioComponent},
+
 
   {path: 'listaEsp', component: ListaEspectaculoComponent, canActivate:[EspectaculoGuard], data: {expectedRol: ['artista','empresario']}},
   {path: 'espdetalle/:id', component: DetalleEspectaculoComponent, canActivate:[EspectaculoGuard], data: {expectedRol: ['artista','empresario']}},

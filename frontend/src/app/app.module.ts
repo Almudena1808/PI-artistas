@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,6 +12,8 @@ import { MatIconModule } from '@angular/material/icon';
 
 import { interceptorProvider } from './interceptors/espectaculo.interceptor';
 
+import { MatButtonModule } from '@angular/material/button';
+import { MatMenuModule } from '@angular/material/menu'; 
 
 import { ListaUsuarioComponent } from './usuario/lista-usuario.component';
 import { EditarUsuarioComponent } from './usuario/editar-usuario.component';
@@ -25,10 +28,14 @@ import { DetalleEspectaculoComponent } from './espectaculo/detalle-espectaculo/d
 import { LoginComponent } from './auth/login/login.component';
 
 //external
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { UsuarioElegirResgistroComponent } from './usuario-elegir-resgistro/usuario-elegir-resgistro.component';
 import { RegistroArtistaComponent } from './auth/registro-artista/registro-artista.component';
+import { PieComponent } from './pie/pie.component';
+import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.component';
+import { EditArtComponent } from './usuario/edit-art/edit-art.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +50,7 @@ import { RegistroArtistaComponent } from './auth/registro-artista/registro-artis
     ListaEspectaculoComponent, 
     NuevoEspectaculoComponent, 
     EditarEspectaculoComponent, 
-    DetalleEspectaculoComponent, UsuarioElegirResgistroComponent, RegistroArtistaComponent,
+    DetalleEspectaculoComponent, UsuarioElegirResgistroComponent, RegistroArtistaComponent, PieComponent, PerfilUsuarioComponent, EditArtComponent,
     
   ],
   imports: [
@@ -53,7 +60,10 @@ import { RegistroArtistaComponent } from './auth/registro-artista/registro-artis
     FormsModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
-    MatIconModule
+    MatIconModule,
+    ReactiveFormsModule,
+    MatButtonModule,
+    MatMenuModule
   ],
   providers: [interceptorProvider],
   bootstrap: [AppComponent]

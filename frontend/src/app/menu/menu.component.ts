@@ -12,6 +12,7 @@ export class MenuComponent implements OnInit {
   user: string ="";
   isLogged: boolean = false;
   isArtista: boolean = false;
+  idUsuario = 0;
 
 
   constructor(
@@ -24,6 +25,8 @@ export class MenuComponent implements OnInit {
     this.isLogged = this.tokenService.isLogged();
     this.isArtista = this.tokenService.isArtista();
     this.tokenService.isLogged() ? this.isLogged= true: this.isLogged=false;
+    this.idUsuario= this.tokenService.getIdUsuario();
+    console.log(this.idUsuario);
   }
 
   logOut():void{

@@ -1,36 +1,64 @@
 <app-menu></app-menu>
 
-<div class="container"  *ngIf="!listaVacia">
-  <table class="table table-dark text-center">
-        <thead>
-          <tr>
-            <th scope="col">Foto</th>
-            <th scope="col">Nombre</th>
-            <th scope="col">Descripción</th>
-            <th scope="col">Precio</th>
-            <th scope="col">Ver</th>
-            <th scope="col" *ngIf="isArtista">Editar</th>
-            <th scope="col" *ngIf="isArtista">Borrar</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let esp of espectaculos">
-            <td>FOTO CABECERA</td>
-
-            <td>{{esp.nombre}}</td>
-            <td>{{esp.descripcion}}</td>
-            <td>{{esp.precio}}</td>
-
-            <td><button class="btn btn-outline-primary" routerLink="/espdetalle/{{esp.id}}"><i class="far fa-eye"></i> Ver</button></td>
-            <td *ngIf="isArtista"><button class="btn btn-outline-warning" routerLink="/espeditar/{{esp.id}}"><i class="far fa-edit"></i> Editar</button></td>
-            <td *ngIf="isArtista"><button class="btn btn-outline-danger" onclick="borrar(esp.id)"><i class="far fa-trash-alt"></i> Eliminar</button></td>
-          </tr>
-        </tbody>
-      </table>
-
-      <button class="btn btn-outline-primary" routerLink="/">Volver</button>
-</div>
-
 <div class="container mt-5"  *ngIf="listaVacia">
   <div class="p-3 mb-2 bg-dark text-white text-center"><h2>{{listaVacia}}</h2></div>
 </div>
+
+
+<div class="container mt-5" *ngIf="!listaVacia">
+
+  <div class="row cuadro" *ngFor="let usuario of espectaculos">
+    
+    <div class="row">
+      <div class="col-2 m-2  align-self-center">
+        <img width="150px" height="150px" src="{{usuario.imagen}}">
+      </div>
+
+      <div class="col">
+        <div class="row mt-2">
+          <p class="font-weight-bold">{{usuario.nombre}}</p>
+        </div>
+        <div class="row">
+          <p class="font-weight-light">{{usuario.descripcion}}</p>
+        </div>
+        <div class="row">
+          <p class="font-weight-bold font-italic">{{usuario.precio}}</p>
+
+        </div>
+        
+      </div>
+      <div class="col-3 mt-4">
+        <div class="row ">
+          <div class="col mt-2" *ngIf="isArtista">
+            <div class="row">
+              <button class="btn btnborr" onclick="borrar(usuario.id)"><i class="far fa-trash-alt"></i>
+                Eliminar</button>
+                
+            </div>
+            <div class="row mt-2"  >
+               <button class="btn btnedit" routerLink="/espeditar/{{usuario.id}}"><i class="far fa-edit"></i>
+              Editar</button>
+            </div>
+          </div>
+          <div class="col mr-5 align-self-center">
+            <button class="btn btnver" routerLink="/espdetalle/{{usuario.id}}"><i class="far fa-eye"></i> Ver</button>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+
+
+  </div>
+
+
+</div>
+
+<div class="container" *ngIf="listaVacia">
+  <div class="p-3 mb-2 bg-dark text-white text-center">
+    <h2>{{listaVacia}}</h2>
+  </div>
+</div>
+
+<button class="btn btn-outline-primary mt-5 ml-5" routerLink="/">Volver</button>
+<app-pie></app-pie>

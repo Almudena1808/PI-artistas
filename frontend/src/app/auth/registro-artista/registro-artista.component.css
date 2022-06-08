@@ -50,3 +50,7 @@ img{
     background-color: #900c3f;
     color: #ffc30f
 }
+input:invalid:required {
+    border: 2px solid red;
+}
+

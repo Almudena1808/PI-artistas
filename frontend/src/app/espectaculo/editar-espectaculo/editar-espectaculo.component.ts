@@ -15,7 +15,7 @@ export class EditarEspectaculoComponent implements OnInit {
 
   idUser = this.tokenService.getIdUsuario();
 
-  espectaculo: Espectaculo = new Espectaculo("","","",this.idUser);
+  espectaculo: Espectaculo = new Espectaculo("","","",this.idUser,"");
 
   constructor(
     private espectaculoService: EspectaculoService,

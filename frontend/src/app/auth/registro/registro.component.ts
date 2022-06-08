@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Usuario } from 'src/app/models/usuario';
@@ -18,15 +19,16 @@ export class RegistroComponent implements OnInit {
   email = '';
   direccion = '';
   foto = '';
-  fechNac= '';
-  especializacion= '';
-  descripcion= '';
-  organizacion= '';
+  fechNac = '';
+  especializacion = '';
+  descripcion = '';
+  organizacion = '';
 
-  usuario = new Usuario(this.user, this.nombre, this.apellidos, this.contrasenia, this.telefono, this.email, this.direccion, this.foto, this.fechNac, this.especializacion,this.descripcion,this.organizacion);
+  usuario = new Usuario(this.user, this.nombre, this.apellidos, this.contrasenia, this.telefono, this.email, this.direccion, this.foto, this.fechNac, this.especializacion, this.descripcion, this.organizacion);
 
 
   previsualizacion: any;
+
 
   constructor(
     private usuarioService: UsuarioService,
@@ -34,7 +36,7 @@ export class RegistroComponent implements OnInit {
     private router: Router
   ) { }
 
-  
+
   async capturarFoto(event: Event) {
     const element = event.currentTarget as HTMLInputElement;
     if (element.files!) {
@@ -50,18 +52,19 @@ export class RegistroComponent implements OnInit {
 
   }
   onCreate(): void {
-    this.usuario.user =this.user;
-    this.usuario.nombre =this.nombre;
-    this.usuario.apellidos =this.apellidos;
-    this.usuario.contrasenia =this.contrasenia;
-    this.usuario.telefono =this.telefono;
-    this.usuario.email =this.email;
-    this.usuario.direccion =this.direccion;
-    this.usuario.foto =this.previsualizacion;
-    this.usuario.fechNac =this.fechNac;
-    this.usuario.especializacion =this.especializacion;
-    this.usuario.descripcion =this.descripcion;
-    this.usuario.organizacion =this.organizacion;
+
+    this.usuario.user = this.user;
+    this.usuario.nombre = this.nombre;
+    this.usuario.apellidos = this.apellidos;
+    this.usuario.contrasenia = this.contrasenia;
+    this.usuario.telefono = this.telefono;
+    this.usuario.email = this.email;
+    this.usuario.direccion = this.direccion;
+    this.usuario.foto = this.previsualizacion;
+    this.usuario.fechNac = this.fechNac;
+    this.usuario.especializacion = this.especializacion;
+    this.usuario.descripcion = this.descripcion;
+    this.usuario.organizacion = this.organizacion;
 
 
     this.usuarioService.save(this.usuario).subscribe(
@@ -69,7 +72,7 @@ export class RegistroComponent implements OnInit {
         this.toastr.success(data.message, 'OK', {
           timeOut: 3000, positionClass: 'toast-top-center'
         });
-        this.router.navigate(['listaUsuario/']);
+        this.router.navigate(['/']);
       },
       err => { // si salta un error
         this.toastr.error(err.error.message, 'Fail', {
@@ -77,6 +80,8 @@ export class RegistroComponent implements OnInit {
         });
       }
     );
+
+   
   }
 
   volver(): void {

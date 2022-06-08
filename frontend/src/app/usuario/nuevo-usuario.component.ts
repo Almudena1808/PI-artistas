@@ -43,8 +43,8 @@ export class NuevoUsuarioComponent implements OnInit {
 
       const base64 = this.toBase64(img);
       this.previsualizacion = await base64;
-      console.log('PREVISUALIZACION ' + this.previsualizacion);
-      console.log("FileUpload -> files", img);
+     // console.log('PREVISUALIZACION ' + this.previsualizacion);
+     // console.log("FileUpload -> files", img);
     }
     else console.log('es nulisimo');
 
