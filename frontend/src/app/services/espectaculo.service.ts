@@ -20,6 +20,10 @@ export class EspectaculoService {
     return this.httpClient.get<Espectaculo>(`${this.espectaculoURL}${id}`);
   }
 
+  public busca(id:number): Observable<Espectaculo[]> {
+    return this.httpClient.get<Espectaculo[]>(`${this.espectaculoURL}busca/${id}`);
+  }
+
   public save(espectaculo: Espectaculo): Observable<any> {
     return this.httpClient.post<any>(`${this.espectaculoURL}`, espectaculo);
   }

@@ -1,0 +1,63 @@
+<app-menu></app-menu>
+
+<div class="container mt-5" *ngIf="listaVacia">
+    <div class="p-3 mb-2 bg-dark text-white text-center">
+        <h2>{{listaVacia}}</h2>
+    </div>
+</div>
+
+
+<div class="container mt-5" *ngIf="!listaVacia">
+
+    <div class="row cuadro" *ngFor="let usuario of espectaculos">
+
+        <div class="row">
+            <div class="col-2 m-2  align-self-center">
+                <img width="150px" height="150px" src="{{usuario.imagen}}">
+            </div>
+
+            <div class="col">
+
+                <div class="row mt-2">
+                    <p class="font-weight-bold">{{usuario.nombre}}</p>
+                </div>
+                <div class="row">
+                    <p class="font-weight-light">{{usuario.descripcion}}</p>
+                </div>
+                <div class="row">
+                    <p class="font-weight-bold font-italic">{{usuario.precio}} €</p>
+
+                </div>
+
+            </div>
+            <div class="col-2 ml-5 mt-5">
+                <div class="row  " *ngIf="isArtista">
+                    <button class="btn btnborr" (click)="borrar(usuario.id)"><i class="far fa-trash-alt"></i>
+                        Eliminar</button>
+
+                </div>
+                <div class="row mt-2 d-flex justify-content-right" >
+                    <button class="btn btnedit" routerLink="/espeditar/{{usuario.id}}"><i class="far fa-edit"></i>
+                        Editar</button>
+                </div>
+                <div class="row mt-2">
+                    <button class="btn btnver" routerLink="/espdetalle/{{usuario.id}}"><i class="far fa-eye"></i>
+                        Ver</button>
+                </div>
+            </div>
+          
+        </div>
+
+    </div>
+</div>
+
+
+
+<div class="container" *ngIf="listaVacia">
+    <div class="p-3 mb-2 bg-dark text-white text-center">
+        <h2>{{listaVacia}}</h2>
+    </div>
+</div>
+
+<button class="btn btnver mt-5 ml-5" routerLink="/listaUsuario">Volver</button>
+<app-pie></app-pie>

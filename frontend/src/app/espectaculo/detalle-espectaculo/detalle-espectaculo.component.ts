@@ -40,14 +40,11 @@ id: number=0;
         this.toastr.error(err.error.message, 'Fail', {
           timeOut: 3000,  positionClass: 'toast-top-center',
         });
-        this.volver();
+        this.router.navigate(['/listaUsuario']);
       }
     );
   }
 
-  volver(): void {
-    this.router.navigate(['listaEsp/']);
-  }
 
   contratar(id:number){
     this.router.navigate(['/id']);

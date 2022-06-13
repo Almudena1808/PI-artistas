@@ -1,46 +1,139 @@
 <app-menu></app-menu>
 
-<div class="container" *ngIf="usuario">
-    <div class="row mt-5">
-        <div class="col-md-4 mx-auto">
-            <form (ngSubmit)="onUpdate()" novalidate #f="ngForm">
-                <div class="form-group">
-                    <label for="nombre">Nombre</label>
-                    <input type="text" class="form-control" id="nombre" name="nombre" [(ngModel)]="usuario.nombre"
-                        required autocomplete="off">
-                </div>
-                <div class="form-group">
-                    <label for="apellidos">Apellidos</label>
-                    <input type="text" class="form-control" id="apellidos" name="apellidos" [(ngModel)]="usuario.apellidos"
-                        required autocomplete="off">
-                </div>
-                <div class="form-group">
-                    <label for="telefono">Teléfono</label>
-                    <input type="text" class="form-control" id="telefono" name="telefono" [(ngModel)]="usuario.telefono"
-                        required autocomplete="off">
-                </div>
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="text" class="form-control" id="email" name="email" [(ngModel)]="usuario.email"
-                        required autocomplete="off">
-                </div>
-                <div class="form-group">
-                    <label for="direccion">Dirección</label>
-                    <input type="text" class="form-control" id="direccion" name="direccion" [(ngModel)]="usuario.direccion"
-                        required autocomplete="off">
-                </div>
 
-                <div class="form-group">
-                    <label for="foto">Foto</label>
-                    <input type="file" class="form-control" id="foto" name="foto" [(ngModel)]="usuario.foto"
-                        required autocomplete="off">
-                </div>
-                
-                <button class="btn btn-outline-success btn-block" [disabled]="!f.valid">
-                    <i class="fas fa-edit"></i> Actualizar</button>
-                <button class="btn btn-outline-primary btn-block" (click)="volver()"><i
-                        class="fas fa-arrow-alt-circle-left"></i> Volver</button>
-            </form>
+<div class="container" *ngIf="usuario">
+    <div class="row mt-4">
+        <div class="col-12 text-aling-center">
+            <h2 class="text-center">Edita su perfil</h2>
         </div>
     </div>
+    <form novalidate #f="ngForm">
+        <div class="row mt-3">
+
+            <div class="col-6">
+                <div class="row">
+
+                    <div class="col-12 form-group">
+                        <label for="user">Nombre de Usuario: {{usuario.user}}</label>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6 form-group">
+                        <label for="nombre">Nombre</label>
+                        <input type="text" class="form-control" id="nombre" name="nombre" [(ngModel)]="usuario.nombre"
+                            [value]="usuario.nombre" required autocomplete="off">
+                    </div>
+
+                    <div class="col-6 form-group">
+
+                        <label for="apellidos">Apellidos</label>
+                        <input type="text" class="form-control" id="apellidos" name="apellidos"
+                            [value]="usuario.apellidos" [(ngModel)]="usuario.apellidos" required autocomplete="off">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6 form-group">
+                        <label for="telefono">Teléfono</label>
+                        <input type="tel" class="form-control" id="telefono" name="telefono"
+                            [(ngModel)]="usuario.telefono" pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}" required
+                            [value]="usuario.telefono" autocomplete="off">
+                    </div>
+                    <div class="col-6 form-group">
+                        <label for="fechNac">Fecha de nacimiento</label>
+                        <input type="date" class="form-control" id="fechNac" name="fechNac" [value]="usuario.fechNac"
+                            [(ngModel)]="usuario.fechNac" required autocomplete="off">
+                    </div>
+                </div>
+                <div class="row">
+
+                    <div class="col-12 form-group">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" id="email" name="email" [(ngModel)]="usuario.email"
+                            [value]="usuario.email" required autocomplete="off">
+                    </div>
+
+                </div>
+                <div class="row">
+
+                    <div class="col-12 form-group">
+                        <label for="direccion">Direccion</label>
+                        <input type="text" class="form-control" id="direccion" name="direccion"
+                            [value]="usuario.direccion" [(ngModel)]="usuario.direccion" required autocomplete="off">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 form-group">
+                        <label for="contrasenia">Contraseña</label>
+                        <input type="password" class="form-control"  id="contrasenia" name="contrasenia" required
+                           autocomplete="off">
+                    </div>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="row">
+                    <div class="col-12 form-group">
+                        <label for="organizacion">Organización/Empresa</label>
+                        <input class="form-control" id="organizacion" required name="organizacion"
+                            [value]="usuario.organizacion" [(ngModel)]="usuario.organizacion" type="text" />
+
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <label for="foto">Foto</label>
+                    </div>
+
+                    <div class="col-12 container-input">
+                        <input class="inputfile inpFoto" onchange='cambiar()' style="display:none ;" id="foto"
+                            name="foto" accept=".png, .jpg, .jpeg" [(ngModel)]="usuario.foto" required
+                            autocomplete="off" (change)="capturarFoto($event)" type="file" [value]="usuario.foto" />
+                        <label for="foto" class="subir">Subir foto</label>
+                        <!-- imagen previsualizada-->
+                        <div *ngIf="previsualizacion">
+                            <img [src]="previsualizacion" alt="img">
+                        </div>
+                        <div *ngIf="!previsualizacion">
+                            <img [src]="usuario.foto" alt="img">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div hidden>
+            <input class="form-control" id="especializacion" required name="especializacion"
+                [(ngModel)]="usuario.especializacion" type="text" [value]="usuario.especializacion" />
+                <textarea class="form-control" required id="descripcion" name="descripcion"
+                [value]="usuario.descripcion" [(ngModel)]="usuario.descripcion" col="50"
+                rows="6"></textarea>
+
+        </div>
+
+
+
+        <div class="row  justify-content-between">
+            <div class="col-2">
+                <button class="btn volver btn-outline-success btn-block" (click)="volver()">
+                    <i class="fas fa-arrow-alt-circle-left"></i> Volver</button>
+            </div>
+            <div class="col-2">
+                <button type="submit" class="btn registrar btn-outline-success " 
+                    (click)="onUpdate()">
+                    <i class="far fa-plus-square"></i> Actualizar</button>
+            </div>
+        </div>
+
+
+    </form>
 </div>
+<br><br>
+
+<script>
+    function cambiar() {
+        var pdrs = document.getElementById('foto').files[0].name;
+        document.getElementById('info').innerHTML = pdrs;
+    }
+
+</script>

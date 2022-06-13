@@ -1,63 +1,44 @@
 <app-menu></app-menu>
-<div class="container">
-    <div class="row mt-5" *ngIf="espectaculo">
-        <div class="col-md-4 mx-auto">
-            <div class="card" style="width: 18rem;">
-                <div class="card-header text-center">
-                    Detalle
-                </div>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item"><b>ID: </b>{{espectaculo.id}}</li>
-                    <li class="list-group-item"><b>Nombre: </b>{{espectaculo.nombre}}</li>
-                    <li class="list-group-item"><b>Descripción: </b>{{espectaculo.descripcion}}</li>
-                    <li class="list-group-item"><b>Precio: </b>{{espectaculo.precio}}€</li>
-                </ul>
-                <div class="card-footer">
-                    <button class="btn btn-outline-primary btn-block" (click)="volver()"><i
-                            class="fas fa-arrow-alt-circle-left"></i> Volver</button>
-                </div>
-            </div>
+
+<div class="container cuadro">
+    <div class="row mt-3 mb-5">
+        <div class="col">
+            <img width="1100px" height="300px" src="{{espectaculo.imagen}}">
 
         </div>
     </div>
-</div>
-
-<div class="container">
-    <div class="row mt-5">
-        <div class="col">
+    <div class="row">
+        <div class="col mb-5">
             <h1 class="titulo text-center">{{espectaculo.nombre}}</h1>
         </div>
     </div>
-    <div class="row">
-        <div class="col">
-          <img width="100%" height="200px" src="">
-        </div>
-    </div>
 
     <div class="row">
         <div class="col">
-          <p>{{espectaculo.descripcion}}</p>
+            <p class="font-weight-bold">Descripción:</p>
+            <p>{{espectaculo.descripcion}}</p>
+
         </div>
     </div>
 
-    <div class="row">
-        <div class="col">
-            <button class="btn volver btn-outline-success btn-block" (click)="volver()">
+    <div class="row mt-3">
+
+        <div class="col d-flex justify-content-star">
+            <button class="btn volver btn-outline-success btn-block" routerLink="/listaUsuario">
+
                 <i class="fas fa-arrow-alt-circle-left"></i> Volver</button>
-        
+
         </div>
-        <div class="col">
-            <p>{{espectaculo.precio}}</p>
-          </div>
-          <div class="col"  *ngIf="!isArtista">
+        <div class="col d-flex justify-content-center">
+            <p class="font-weight-bold">Precio: {{espectaculo.precio}} €</p>
+        </div>
+        <div class="col d-flex justify-content-end" *ngIf="!isArtista">
             <button class="btn volver btn-outline-success btn-block" routerLink="/cont/{{espectaculo.id}}">
-               Contratar</button>
-        
-          </div>
-          <div class="col"  *ngIf="isArtista">
-            <button class="btn volver btn-outline-success btn-block"  routerLink="/espeditar/{{espectaculo.id}}">
-              Editar</button>
-        
-          </div>
+                Contratar</button>
+
+        </div>
+     
+    
     </div>
 </div>
+<app-pie></app-pie>

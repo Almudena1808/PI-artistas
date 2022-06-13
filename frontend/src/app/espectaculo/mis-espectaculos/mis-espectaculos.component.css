@@ -9,17 +9,12 @@
 .btnver{
     color: white;
     background-color: #C70039;
+    width: 150px;
+
 }
 
 .btnedit, .btnborr{
     background-color: #FF5733;
     color: white;
-    width: 90%;
-}
-
-.cort {
-    width: 760px;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
+    width: 150px;
 }

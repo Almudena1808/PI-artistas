@@ -14,6 +14,7 @@ import { TokenService } from 'src/app/services/token.service';
 export class EditarEspectaculoComponent implements OnInit {
 
   idUser = this.tokenService.getIdUsuario();
+  previsualizacion: any;
 
   espectaculo: Espectaculo = new Espectaculo("","","",this.idUser,"");
 
@@ -47,7 +48,7 @@ export class EditarEspectaculoComponent implements OnInit {
         this.toastr.success(data.message, 'OK', {
           timeOut: 3000, positionClass: 'toast-top-center'
         });
-        this.router.navigate(['listaEsp/']);
+        this.router.navigate(['/misespectaculos/',this.idUser]);
       },
       err => {
         this.toastr.error(err.error.message, 'Fail', {
@@ -58,7 +59,34 @@ export class EditarEspectaculoComponent implements OnInit {
   }
 
   volver(): void {
-    this.router.navigate(['/listaEsp']);
+    this.router.navigate(['/misespectaculos/',this.idUser]);
   }
+
+  
+  async capturarFoto(event: Event) {
+    const element = event.currentTarget as HTMLInputElement;
+    if (element.files!) {
+      let fileList: FileList = element.files;
+      const img = fileList[0];
+
+      const base64 = this.toBase64(img);
+      this.previsualizacion = await base64;
+      console.log('PREVISUALIZACION ' + this.previsualizacion);
+      console.log("FileUpload -> files", img);
+    }
+    else console.log('es nulisimo');
+
+  }
+
+  toBase64 = (file: Blob) => new Promise((resolve: any) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => {
+      resolve(reader.result)
+    };
+
+  });
+
+
 
 }

@@ -6,6 +6,7 @@ import { RegistroComponent } from './auth/registro/registro.component';
 import { DetalleEspectaculoComponent } from './espectaculo/detalle-espectaculo/detalle-espectaculo.component';
 import { EditarEspectaculoComponent } from './espectaculo/editar-espectaculo/editar-espectaculo.component';
 import { ListaEspectaculoComponent } from './espectaculo/lista-espectaculo/lista-espectaculo.component';
+import { MisEspectaculosComponent } from './espectaculo/mis-espectaculos/mis-espectaculos.component';
 import { NuevoEspectaculoComponent } from './espectaculo/nuevo-espectaculo/nuevo-espectaculo.component';
 import { EspectaculoGuard } from './guards/espectaculo.guard';
 import { LoginGuard } from './guards/login.guard';
@@ -37,6 +38,8 @@ const routes: Routes = [
   {path: 'espdetalle/:id', component: DetalleEspectaculoComponent, canActivate:[EspectaculoGuard], data: {expectedRol: ['artista','empresario']}},
   {path: 'espnuevo', component: NuevoEspectaculoComponent, canActivate:[EspectaculoGuard], data: {expectedRol: ['artista']}},
   {path: 'espeditar/:id', component: EditarEspectaculoComponent, canActivate:[EspectaculoGuard], data: {expectedRol: ['artista']}},
+  {path: 'misespectaculos/:id', component: MisEspectaculosComponent, canActivate:[EspectaculoGuard], data: {expectedRol: ['artista']}},
+
 
   {path: '**', redirectTo: '', pathMatch: 'full'}
 

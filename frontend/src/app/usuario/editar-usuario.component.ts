@@ -11,6 +11,7 @@ import { UsuarioService } from '../services/usuario.service';
 })
 export class EditarUsuarioComponent implements OnInit {
   usuario: Usuario = new Usuario("","","","","","","","","","","","");
+  previsualizacion: any;
 
   constructor( 
     private usuarioService: UsuarioService,
@@ -55,5 +56,30 @@ export class EditarUsuarioComponent implements OnInit {
   volver(): void {
     this.router.navigate(['listaUsuario/']);
   }
+
+  
+  async capturarFoto(event: Event) {
+    const element = event.currentTarget as HTMLInputElement;
+    if (element.files!) {
+      let fileList: FileList = element.files;
+      const img = fileList[0];
+
+      const base64 = this.toBase64(img);
+      this.previsualizacion = await base64;
+      console.log('PREVISUALIZACION ' + this.previsualizacion);
+      console.log("FileUpload -> files", img);
+    }
+    else console.log('es nulisimo');
+
+  }
+
+  toBase64 = (file: Blob) => new Promise((resolve: any) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => {
+      resolve(reader.result)
+    };
+
+  });
 
 }

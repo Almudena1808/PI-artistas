@@ -42,7 +42,8 @@
                     name="imagen" accept=".png, .jpg, .jpeg" [(ngModel)]="imagen" required autocomplete="off"
                     (change)="capturarFoto($event)" type="file" />
                 <label for="imagen" class="subir">Subir foto</label>
-
+                <br>
+                    <span style="color:red ;">* Tamaño recomendado 1100px x 300px </span>
                   
                 </div>
             </div>
@@ -61,7 +62,7 @@
             <div class="col-2">
                 <button type="submit" class="btn registrar btn-outline-success btn-block " [disabled]="!f.valid"
                     (click)="onCreate()">
-                    <i class="far fa-plus-square"></i> Registrar</button>
+                    <i class="far fa-plus-square"></i> Guardar</button>
             </div>
 
 

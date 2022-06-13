@@ -89,7 +89,7 @@ export class NuevoEspectaculoComponent implements OnInit {
 
  
   volver(): void {
-    this.router.navigate(['/listaEsp']);
+    this.router.navigate(['/misespectaculos/',this.user]);
   }
 
   ngOnInit(): void {

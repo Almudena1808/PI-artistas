@@ -13,6 +13,7 @@ import { UsuarioService } from '../services/usuario.service';
 export class DetalleUsuarioComponent implements OnInit {
 
   idUser = this.tokenService.getIdUsuario();
+  isArtista: boolean = false;
 
 
   usuario: Usuario = new Usuario("","","","","","","","","","","","");
@@ -26,6 +27,7 @@ export class DetalleUsuarioComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.isArtista = this.tokenService.isArtista();
 
     const id = this.activatedRoute.snapshot.params['id'];
     this.usuarioService.detail(id).subscribe(

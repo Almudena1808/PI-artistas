@@ -36,6 +36,8 @@ import { RegistroArtistaComponent } from './auth/registro-artista/registro-artis
 import { PieComponent } from './pie/pie.component';
 import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.component';
 import { EditArtComponent } from './usuario/edit-art/edit-art.component';
+import { ListaEspArtComponent } from './espectaculo/lista-esp-art/lista-esp-art.component';
+import { MisEspectaculosComponent } from './espectaculo/mis-espectaculos/mis-espectaculos.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +52,7 @@ import { EditArtComponent } from './usuario/edit-art/edit-art.component';
     ListaEspectaculoComponent, 
     NuevoEspectaculoComponent, 
     EditarEspectaculoComponent, 
-    DetalleEspectaculoComponent, UsuarioElegirResgistroComponent, RegistroArtistaComponent, PieComponent, PerfilUsuarioComponent, EditArtComponent,
+    DetalleEspectaculoComponent, UsuarioElegirResgistroComponent, RegistroArtistaComponent, PieComponent, PerfilUsuarioComponent, EditArtComponent, ListaEspArtComponent, MisEspectaculosComponent,
     
   ],
   imports: [
