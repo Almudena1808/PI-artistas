@@ -38,6 +38,10 @@ import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.componen
 import { EditArtComponent } from './usuario/edit-art/edit-art.component';
 import { ListaEspArtComponent } from './espectaculo/lista-esp-art/lista-esp-art.component';
 import { MisEspectaculosComponent } from './espectaculo/mis-espectaculos/mis-espectaculos.component';
+import { EmpMisContratosComponent } from './contrato/emp-mis-contratos/emp-mis-contratos.component';
+import { NuevoContratosComponent } from './contrato/nuevo-contratos/nuevo-contratos.component';
+import { EditarContratoComponent } from './contrato/editar-contrato/editar-contrato.component';
+import { ResumenEspComponent } from './espectaculo/resumen-esp/resumen-esp.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +56,17 @@ import { MisEspectaculosComponent } from './espectaculo/mis-espectaculos/mis-esp
     ListaEspectaculoComponent, 
     NuevoEspectaculoComponent, 
     EditarEspectaculoComponent, 
-    DetalleEspectaculoComponent, UsuarioElegirResgistroComponent, RegistroArtistaComponent, PieComponent, PerfilUsuarioComponent, EditArtComponent, ListaEspArtComponent, MisEspectaculosComponent,
+    DetalleEspectaculoComponent, 
+    UsuarioElegirResgistroComponent, 
+    RegistroArtistaComponent, 
+    PieComponent, 
+    PerfilUsuarioComponent, 
+    EditArtComponent, 
+    ListaEspArtComponent, 
+    MisEspectaculosComponent, 
+    EmpMisContratosComponent, 
+    NuevoContratosComponent, 
+    EditarContratoComponent, ResumenEspComponent,
     
   ],
   imports: [

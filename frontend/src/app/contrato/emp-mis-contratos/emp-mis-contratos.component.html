@@ -1,0 +1,30 @@
+<app-menu></app-menu>
+
+<div class="flex-container mt-5" *ngIf="!listaVacia">
+
+    <div class="cuadro " *ngFor="let cont of contratos">
+
+
+        <p><b>Fecha del evento: </b>{{cont.fechaEvento}}</p>
+
+        <p><b>Fecha que se solicitó: </b>{{cont.fechaSolicitud}}</p>
+
+        <div class="d-flex justify-content-center mt-5">
+            <p *ngIf="cont.fechaFirma==''" class="pendiente"><b>PENDIENTE</b></p>
+            <div *ngIf="cont.fechaFirma!=''">
+                <p *ngIf="cont.aceptado==false" class="rechazado"> RECHAZADO</p>
+                <p *ngIf="cont.aceptado==true" class="aceptado "> ACEPTADO</p>
+            </div>
+        </div>
+      
+    </div>
+</div>
+
+<div class="container" *ngIf="listaVacia">
+    <div class="p-3 mb-2 bg-dark text-white text-center">
+        <h2>En este momento no hay espectáculos disponibles de este artista</h2>
+    </div>
+</div>
+
+<button class="btn  mt-5 ml-5" routerLink="/listaUsuario">Volver</button>
+<app-pie></app-pie>

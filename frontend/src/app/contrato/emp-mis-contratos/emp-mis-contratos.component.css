@@ -1,0 +1,53 @@
+.rechazado{
+    color: red;
+    background-color: #F59A86;
+    border: 1px solid #ff2b00;
+    border-radius: 15px;
+    padding: 5px;
+    width: 100px;
+    text-align: center;
+}
+.aceptado{
+    color: green;
+    background-color: #A2FF99;
+    border: 1px solid green;
+    border-radius: 15px;
+    padding: 5px;
+    width: 100px;
+    text-align: center;
+}
+.pendiente{
+    background-color: #B4BAB3;
+    border: 1px solid ;
+    border-radius: 15px;
+    padding: 5px;
+    width: 100px;
+    text-align: center;
+
+}
+
+.btn{
+    margin-top: 30px;
+    color: white;
+    border: #900c3f;
+    background-color: #C70039;
+    width: 150px;
+}
+
+.cuadro{
+    margin-top: 25px;
+    margin: 20px;
+    padding: 30px;
+    display: block;
+    justify-content: center;
+    border: solid 1px #C70039;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding-bottom: 25px;
+    width: 300px;
+    height: 250px;
+}
+
+.flex-container{
+      display: flex;
+    flex-wrap: wrap;
+}

@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg">
-  <a class="enlacesNav m-0" href="/"><img class="m-0" width="70px" height="70px" src="../assets/images/logo.png"></a>
+  <a class="enlacesNav m-0"><img class="m-0" width="70px" height="70px" src="../assets/images/logo.png"></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
     aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -46,10 +46,12 @@
         </button>
         <mat-menu #menu="matMenu">
           
-          <button *ngIf="isArtista" mat-menu-item class="btn btn-outline logout" routerLink="/espnuevo">Nuevo
-            Espectáculo</button>
+          <button *ngIf="isArtista" mat-menu-item class="btn btn-outline logout" routerLink="/espnuevo">Nuevo Espectáculo</button>
           <button *ngIf="isArtista" mat-menu-item class="btn btn-outline logout"
             routerLink="/misespectaculos/{{idUsuario}}">Mis espectáculos</button>
+
+            <button *ngIf="!isArtista" mat-menu-item class="btn btn-outline logout" routerLink="/empmiscontratos/{{idUsuario}}">Mis contratos</button>
+
 
           <hr>
           <button mat-menu-item class="btn btn-outline logout" routerLink="/perfil/{{idUsuario}}">Mi perfil</button>

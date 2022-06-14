@@ -1,0 +1,36 @@
+.container{
+    margin-top: 50px;
+    width: 400px;
+    height: 475px;
+    display: block;
+    justify-content: center;
+    border: solid 1px #C70039;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+label{
+    font-size: 20px;
+}
+
+img{
+    width: 100px;
+    height: 100px;
+}
+.btn{
+    margin-top: 30px;
+    color: white;
+    background-color: #C70039;
+    width: 100%;
+}
+
+.vol{
+    margin-left: 20px;
+    width: 100px;
+}
+
+input:invalid:required {
+    border: 2px solid red;
+}
+input:valid {
+    border: 2px solid green;
+}

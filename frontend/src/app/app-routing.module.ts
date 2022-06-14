@@ -3,11 +3,14 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './auth/login/login.component';
 import { RegistroArtistaComponent } from './auth/registro-artista/registro-artista.component';
 import { RegistroComponent } from './auth/registro/registro.component';
+import { EmpMisContratosComponent } from './contrato/emp-mis-contratos/emp-mis-contratos.component';
+import { NuevoContratosComponent } from './contrato/nuevo-contratos/nuevo-contratos.component';
 import { DetalleEspectaculoComponent } from './espectaculo/detalle-espectaculo/detalle-espectaculo.component';
 import { EditarEspectaculoComponent } from './espectaculo/editar-espectaculo/editar-espectaculo.component';
 import { ListaEspectaculoComponent } from './espectaculo/lista-espectaculo/lista-espectaculo.component';
 import { MisEspectaculosComponent } from './espectaculo/mis-espectaculos/mis-espectaculos.component';
 import { NuevoEspectaculoComponent } from './espectaculo/nuevo-espectaculo/nuevo-espectaculo.component';
+import { ResumenEspComponent } from './espectaculo/resumen-esp/resumen-esp.component';
 import { EspectaculoGuard } from './guards/espectaculo.guard';
 import { LoginGuard } from './guards/login.guard';
 import { HomeComponent } from './home/home.component';
@@ -32,6 +35,7 @@ const routes: Routes = [
 
 
   {path: 'perfil/:id', component:PerfilUsuarioComponent},
+  {path: 'resumen/:idcont', component:ResumenEspComponent},
 
 
   {path: 'listaEsp', component: ListaEspectaculoComponent, canActivate:[EspectaculoGuard], data: {expectedRol: ['artista','empresario']}},
@@ -39,6 +43,10 @@ const routes: Routes = [
   {path: 'espnuevo', component: NuevoEspectaculoComponent, canActivate:[EspectaculoGuard], data: {expectedRol: ['artista']}},
   {path: 'espeditar/:id', component: EditarEspectaculoComponent, canActivate:[EspectaculoGuard], data: {expectedRol: ['artista']}},
   {path: 'misespectaculos/:id', component: MisEspectaculosComponent, canActivate:[EspectaculoGuard], data: {expectedRol: ['artista']}},
+
+  {path: 'nuevocontrato/:id', component: NuevoContratosComponent, canActivate:[EspectaculoGuard], data: {expectedRol: ['empresario']}},
+  {path: 'empmiscontratos/:id', component: EmpMisContratosComponent, canActivate:[EspectaculoGuard], data: {expectedRol: ['empresario']}},
+  {path: 'editcontrato', component: NuevoContratosComponent, canActivate:[EspectaculoGuard], data: {expectedRol: ['artista','empresario']}},
 
 
   {path: '**', redirectTo: '', pathMatch: 'full'}

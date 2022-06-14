@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Espectaculo } from 'src/app/models/espectaculo';
-import { Usuario } from 'src/app/models/usuario';
 import { EspectaculoService } from 'src/app/services/espectaculo.service';
 import { TokenService } from 'src/app/services/token.service';
 

@@ -26,7 +26,7 @@ export class MenuComponent implements OnInit {
     this.isArtista = this.tokenService.isArtista();
     this.tokenService.isLogged() ? this.isLogged= true: this.isLogged=false;
     this.idUsuario= this.tokenService.getIdUsuario();
-    console.log(this.idUsuario);
+    //console.log(this.idUsuario);
   }
 
   logOut():void{
