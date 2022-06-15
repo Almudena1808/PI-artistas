@@ -14,6 +14,10 @@
                 <div class="row">
 
                     <div class="col-12 form-group">
+                        <div hidden>
+                            <input type="text" class="form-control" id="nombre" name="nombre" [(ngModel)]="usuario.user"
+                            [value]="usuario.user" required autocomplete="off">
+                        </div>
                         <label for="user">Nombre de Usuario: {{usuario.user}}</label>
 
                     </div>
@@ -29,7 +33,7 @@
 
                         <label for="apellidos">Apellidos</label>
                         <input type="text" class="form-control" id="apellidos" name="apellidos"
-                            [value]="usuario.apellidos" [(ngModel)]="usuario.apellidos" required autocomplete="off">
+                            [value]="usuario.apellidos" [(ngModel)]="usuario.apellidos" autocomplete="off">
                     </div>
                 </div>
                 <div class="row">
@@ -42,7 +46,7 @@
                     <div class="col-6 form-group">
                         <label for="fechNac">Fecha de nacimiento</label>
                         <input type="date" class="form-control" id="fechNac" name="fechNac" [value]="usuario.fechNac"
-                            [(ngModel)]="usuario.fechNac" required autocomplete="off">
+                            [(ngModel)]="usuario.fechNac" autocomplete="off">
                     </div>
                 </div>
                 <div class="row">
@@ -59,14 +63,14 @@
                     <div class="col-12 form-group">
                         <label for="direccion">Direccion</label>
                         <input type="text" class="form-control" id="direccion" name="direccion"
-                            [value]="usuario.direccion" [(ngModel)]="usuario.direccion" required autocomplete="off">
+                            [value]="usuario.direccion" [(ngModel)]="usuario.direccion" autocomplete="off">
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-12 form-group">
                         <label for="contrasenia">Contraseña</label>
-                        <input type="password" class="form-control"  id="contrasenia" name="contrasenia" required
-                           autocomplete="off">
+                        <input type="password" class="form-control"  id="contrasenia" required name="contrasenia" 
+                           autocomplete="off" >
                            <span style="color: red ;">* Obligatorio rellenar la contraseña</span>
                     </div>
                 </div>
@@ -99,7 +103,7 @@
 
                     <div class="col-12 container-input">
                         <input class="inputfile inpFoto" onchange='cambiar()' style="display:none ;" id="foto"
-                            name="foto" accept=".png, .jpg, .jpeg" [(ngModel)]="usuario.foto" required
+                            name="foto" accept=".png, .jpg, .jpeg" [(ngModel)]="usuario.foto"
                             autocomplete="off" (change)="capturarFoto($event)" type="file" [value]="usuario.foto" />
                         <label for="foto" class="subir">Subir foto</label>
                         <!-- imagen previsualizada-->
@@ -115,7 +119,7 @@
         </div>
 
         <div hidden>
-            <input class="form-control" id="organizacion" required name="organizacion"
+            <input class="form-control" id="organizacion" name="organizacion"
                 [(ngModel)]="usuario.organizacion" type="text" [value]="usuario.organizacion" />
         </div>
 
@@ -128,7 +132,7 @@
             </div>
             <div class="col-2">
                 <button type="submit" class="btn registrar btn-outline-success " 
-                    (click)="onUpdate()">
+                    (click)="onUpdate()" [disabled]="!f.valid">
                     <i class="far fa-plus-square"></i> Actualizar</button>
             </div>
         </div>

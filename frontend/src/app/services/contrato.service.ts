@@ -24,6 +24,9 @@ export class ContratoService {
   public busca(id:number): Observable<Contrato[]> {
     return this.httpClient.get<Contrato[]>(`${this.contratoURL}busca/${id}`);
   }
+  public esp(id:number): Observable<Contrato[]> {
+    return this.httpClient.get<Contrato[]>(`${this.contratoURL}esp/${id}`);
+  }
   public mirar(idcont: number): Observable<any> {
     return this.httpClient.get<any>(`${this.contratoURL}mirar/${idcont}`);
   }
@@ -31,7 +34,7 @@ export class ContratoService {
     return this.httpClient.post<any>(`${this.contratoURL}`, contrato);
   }
 
-  public update(id: number, contrato: Contrato): Observable<any> {
+  public update(id: number, contrato: any): Observable<any> {
     return this.httpClient.put<any>(`${this.contratoURL}${id}`, contrato);
   }
 

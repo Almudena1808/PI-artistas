@@ -1,0 +1,12 @@
+.container{
+        margin-top: 50px;
+        margin-bottom: 50px;
+        padding-bottom: 50px;
+    
+        width: auto;
+        height: auto;
+        border: solid 1px #C70039;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    
+    
+}

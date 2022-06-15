@@ -1,1 +1,73 @@
-<p>editar-contrato works!</p>
+<app-menu></app-menu>
+
+
+
+<div class="container mt-3">
+
+    <div class="row mt-4">
+        <div class="col-12 text-aling-center">
+            <h2 class="text-center">Solicitud de contratación</h2>
+        </div>
+    </div>
+    <form novalidate #f="ngForm">
+        <div class="row mt-3">
+
+            <div class="col-12">
+                <div class="row">
+
+                    <div class="col-12">
+                        <div hidden>
+                            <input type="text" id="fechaSolicitud" name="fechaSolicitud"
+                                [(ngModel)]="contrato.fechaSolicitud" [value]="contrato.fechaSolicitud">
+                        </div>
+                        <p class="font-italic"><b>Fecha de Solicitud : </b>{{contrato.fechaSolicitud}}</p>
+                    </div>
+
+                </div>
+                <div class="row mt-4">
+                    <div class="col-12">
+                        <div hidden>
+                            <input type="text" id="fechaEvento" name="fechaEvento" [(ngModel)]="contrato.fechaEvento"
+                                [value]="contrato.fechaEvento">
+                        </div>
+                        <p class="font-italic"><b>Fecha del Evento: </b>{{contrato.fechaEvento}} €</p>
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col-12 form-group">
+                        <div class="row ml-2">
+                            <div class="input-group-text">
+                                <input type="radio" id="aceptado" name="aceptado" [(ngModel)]="contrato.aceptado"
+                                    [value]="true" required> &nbsp; <b>Aceptar evento</b><br>
+                                <input type="radio" id="aceptado" name="aceptado" [(ngModel)]="contrato.aceptado"
+                                    [value]="false" required> &nbsp; <b>Rechazar evento</b>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div hidden>
+                    <input type="number" id="espectaculo" name="espectaculo" [(ngModel)]="contrato.espectaculo"
+                        [value]="contrato.espectaculo">
+                </div>
+                <div hidden>
+                    <input type="number" id="empresario" name="empresario" [(ngModel)]="contrato.empresario"
+                        [value]="contrato.empresario">
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row  justify-content-between">
+            <div class="col-6">
+                <button class="btn volver btn-outline-success btn-block" (click)="volver()">
+                    <i class="fas fa-arrow-alt-circle-left"></i> Volver</button>
+            </div>
+            <div class="col-6">
+                <button type="submit" class="btn registrar btn-outline-success " (click)="onUpdate()"
+                    [disabled]="!f.valid">
+                    <i class="far fa-plus-square"></i> Guardar</button>
+            </div>
+        </div>
+
+    </form>
+</div>

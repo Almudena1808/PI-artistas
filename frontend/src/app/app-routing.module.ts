@@ -3,7 +3,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './auth/login/login.component';
 import { RegistroArtistaComponent } from './auth/registro-artista/registro-artista.component';
 import { RegistroComponent } from './auth/registro/registro.component';
+import { EditarContratoComponent } from './contrato/editar-contrato/editar-contrato.component';
 import { EmpMisContratosComponent } from './contrato/emp-mis-contratos/emp-mis-contratos.component';
+import { EspectaculoContratosComponent } from './contrato/espectaculo-contratos/espectaculo-contratos.component';
 import { NuevoContratosComponent } from './contrato/nuevo-contratos/nuevo-contratos.component';
 import { DetalleEspectaculoComponent } from './espectaculo/detalle-espectaculo/detalle-espectaculo.component';
 import { EditarEspectaculoComponent } from './espectaculo/editar-espectaculo/editar-espectaculo.component';
@@ -14,6 +16,7 @@ import { ResumenEspComponent } from './espectaculo/resumen-esp/resumen-esp.compo
 import { EspectaculoGuard } from './guards/espectaculo.guard';
 import { LoginGuard } from './guards/login.guard';
 import { HomeComponent } from './home/home.component';
+import { NotFoundPageComponent } from './not-found-page/not-found-page.component';
 import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.component';
 import { UsuarioElegirResgistroComponent } from './usuario-elegir-resgistro/usuario-elegir-resgistro.component';
 import { DetalleUsuarioComponent } from './usuario/detalle-usuario.component';
@@ -46,10 +49,13 @@ const routes: Routes = [
 
   {path: 'nuevocontrato/:id', component: NuevoContratosComponent, canActivate:[EspectaculoGuard], data: {expectedRol: ['empresario']}},
   {path: 'empmiscontratos/:id', component: EmpMisContratosComponent, canActivate:[EspectaculoGuard], data: {expectedRol: ['empresario']}},
-  {path: 'editcontrato', component: NuevoContratosComponent, canActivate:[EspectaculoGuard], data: {expectedRol: ['artista','empresario']}},
+  {path: 'editcontrato/:id', component: EditarContratoComponent, canActivate:[EspectaculoGuard], data: {expectedRol: ['artista','empresario']}},
+  {path: 'espContrato/:id', component: EspectaculoContratosComponent, canActivate:[EspectaculoGuard], data: {expectedRol: ['artista']}},
+
+  {path: 'error', component: NotFoundPageComponent, canActivate:[EspectaculoGuard], data: {expectedRol: ['artista']}},
 
 
-  {path: '**', redirectTo: '', pathMatch: 'full'}
+  {path: '**', redirectTo: 'error', pathMatch: 'full'}
 
 ];
 

@@ -1,0 +1,46 @@
+.container{
+    margin-top: 100px;
+    margin-bottom: 50px;
+    padding-bottom: 50px;
+
+    width: 500px;
+    height: auto;
+    border: solid 1px #C70039;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+label{
+    font-size: 20px;
+}
+
+img{
+    margin: 15px;
+    height: 50%;
+    width: 50%;
+}
+.btn{
+    margin-top: 30px;
+    color: white;
+    border: #900c3f;
+    background-color: #C70039;
+    width: 100%;
+}
+
+img{
+    height: 200px;
+    width: 550px;
+}
+
+.btn:hover{
+    background-color: #900c3f;
+    color: #ffc30f
+}
+textarea:invalid:required{
+    border: 2px solid red;
+
+}
+input:invalid:required {
+    border: 2px solid red;
+}
+
+

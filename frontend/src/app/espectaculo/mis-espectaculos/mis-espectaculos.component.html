@@ -30,7 +30,7 @@
                 </div>
 
             </div>
-            <div class="col-2 ml-5 mt-5">
+            <div class="col-2 ml-5  align-self-center">
                 <div class="row  " *ngIf="isArtista">
                     <button class="btn btnborr" (click)="borrar(usuario.id)"><i class="far fa-trash-alt"></i>
                         Eliminar</button>
@@ -43,6 +43,10 @@
                 <div class="row mt-2">
                     <button class="btn btnver" routerLink="/espdetalle/{{usuario.id}}"><i class="far fa-eye"></i>
                         Ver</button>
+                </div>
+                <div class="row mt-2 mb-3 ">
+                    <button class="btn btnver" routerLink="/espContrato/{{usuario.id}}"><i class="far fa-eye"></i>
+                        Contratos del espectáculo</button>
                 </div>
             </div>
           

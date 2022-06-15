@@ -42,6 +42,8 @@ import { EmpMisContratosComponent } from './contrato/emp-mis-contratos/emp-mis-c
 import { NuevoContratosComponent } from './contrato/nuevo-contratos/nuevo-contratos.component';
 import { EditarContratoComponent } from './contrato/editar-contrato/editar-contrato.component';
 import { ResumenEspComponent } from './espectaculo/resumen-esp/resumen-esp.component';
+import { EspectaculoContratosComponent } from './contrato/espectaculo-contratos/espectaculo-contratos.component';
+import { NotFoundPageComponent } from './not-found-page/not-found-page.component';
 
 @NgModule({
   declarations: [
@@ -66,7 +68,7 @@ import { ResumenEspComponent } from './espectaculo/resumen-esp/resumen-esp.compo
     MisEspectaculosComponent, 
     EmpMisContratosComponent, 
     NuevoContratosComponent, 
-    EditarContratoComponent, ResumenEspComponent,
+    EditarContratoComponent, ResumenEspComponent, EspectaculoContratosComponent, NotFoundPageComponent,
     
   ],
   imports: [

@@ -1,0 +1,45 @@
+<app-menu></app-menu>
+
+<div class="container mt-5" *ngIf="listaVacia">
+    <div  style="width:100%;" class="p-3 mb-2 cuadro text-center">
+        <h2>Aun no tiene ningún contrato</h2>
+    </div>
+</div>
+
+
+<div class="flex-container mt-5" *ngIf="!listaVacia">
+
+    <div class="cuadro pt-3 pl-5" *ngFor="let c of contratos">
+        <div class="row">
+            <p><b>Fecha Solicitado: </b>{{c.fechaSolicitud}}</p>
+
+        </div>
+        <div class="row">
+            <p><b>Fecha del Evento: </b>{{c.fechaEvento}}</p>
+
+        </div>
+        <div class="row">
+            <div *ngIf="c.fechaFirma==''">
+                <p><b>Fecha firmado: </b>----/--/--</p>
+
+                <p class="pendiente d-flex justify-content-center "><b>PENDIENTE</b></p>
+
+                <button class="btn btnedit mb-3" routerLink="/editcontrato/{{c.id}}"><i class="far fa-edit"></i>
+                    Decisión</button>
+            </div>
+            <div *ngIf="c.fechaFirma!=''">
+                <p><b>Fecha firmado: </b>{{c.fechaFirma}}</p>
+
+                <p *ngIf="c.aceptado==false" class="rechazado"> RECHAZADO</p>
+                <p *ngIf="c.aceptado==true" class="aceptado "> ACEPTADO</p>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+
+
+<button class="btn btnver mt-5 ml-5" routerLink="/misespectaculos/{{idUser}}">Volver</button>
+<app-pie></app-pie>
