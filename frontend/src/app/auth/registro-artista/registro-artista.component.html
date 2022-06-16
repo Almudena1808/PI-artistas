@@ -37,7 +37,7 @@
                     <div class="col-6 form-group">
                         <label for="telefono">Teléfono</label>
                         <input type="tel" class="form-control" id="telefono" name="telefono" [(ngModel)]="telefono"
-                            pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}" required autocomplete="off">
+                            pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}" placeholder="999-999-999" required autocomplete="off">
                     </div>
                     <div class="col-6 form-group">
                         <label for="fechNac">Fecha de nacimiento</label>
@@ -50,7 +50,7 @@
                     <div class="col-12 form-group">
                         <label for="email">Email</label>
                         <input type="email" class="form-control" id="email" name="email" [(ngModel)]="email" required
-                            autocomplete="off">
+                        placeholder="aaa@aaa.com"  autocomplete="off">
                     </div>
 
                 </div>

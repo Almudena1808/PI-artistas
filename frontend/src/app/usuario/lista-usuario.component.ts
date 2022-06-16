@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { Usuario } from '../models/usuario';
 import { UsuarioService } from '../services/usuario.service';
 import Swal from 'sweetalert2';
+import { TokenService } from '../services/token.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -13,19 +15,32 @@ import Swal from 'sweetalert2';
 export class ListaUsuarioComponent implements OnInit {
 
   
+  isArtista: boolean = false;
 
   usuarios: Usuario[] = [];
   public imagen: any;
 
   listaVacia = undefined;
+  idUsuario = 0;
 
 
   constructor(
+    private tokenService: TokenService,
+
     private usuarioService: UsuarioService,
-    private http: HttpClient
+    private http: HttpClient,
+    private router: Router
+
   ) { }
 
   ngOnInit(): void {
+    this.isArtista = this.tokenService.isArtista();
+    this.idUsuario= this.tokenService.getIdUsuario();
+
+    if(this.isArtista){
+      this.router.navigate(['/perfil/',this.idUsuario]);
+
+    }
     this.cargarUsuarios();
   }
 
