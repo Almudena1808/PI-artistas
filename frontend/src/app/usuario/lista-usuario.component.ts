@@ -15,13 +15,12 @@ import { Router } from '@angular/router';
 export class ListaUsuarioComponent implements OnInit {
 
   
-  isArtista: boolean = false;
+ 
 
   usuarios: Usuario[] = [];
   public imagen: any;
 
   listaVacia = undefined;
-  idUsuario = 0;
 
 
   constructor(
@@ -34,13 +33,8 @@ export class ListaUsuarioComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.isArtista = this.tokenService.isArtista();
-    this.idUsuario= this.tokenService.getIdUsuario();
-
-    if(this.isArtista){
-      this.router.navigate(['/perfil/',this.idUsuario]);
-
-    }
+    
+   
     this.cargarUsuarios();
   }
 

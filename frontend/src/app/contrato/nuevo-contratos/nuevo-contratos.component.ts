@@ -23,8 +23,9 @@ export class NuevoContratosComponent implements OnInit {
   fechaSolicitud = this.date.toLocaleDateString(); // cojo la fecha y la pongo mm/dd/aaaa
   fechaFirma= '';
   espectaculo= 0;
-  
-  contrato = new Contrato(this.aceptado, this.fechaEvento, this.fechaSolicitud, this.fechaFirma,this.espectaculo, this.user);
+  mensaje= '';
+
+  contrato = new Contrato(this.aceptado, this.fechaEvento, this.fechaSolicitud, this.fechaFirma,this.espectaculo, this.user, this.mensaje);
 
   espec: Espectaculo = new Espectaculo("","","",0,"");
 
@@ -68,6 +69,7 @@ export class NuevoContratosComponent implements OnInit {
     this.contrato.fechaFirma = this.fechaFirma;
     this.contrato.espectaculo =espId;
     this.contrato.empresario =this.user;
+    this.contrato.mensaje = this.mensaje;
 
 
 

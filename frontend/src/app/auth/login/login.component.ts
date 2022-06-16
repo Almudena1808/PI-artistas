@@ -11,13 +11,15 @@ import { TokenService } from 'src/app/services/token.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  isArtista: boolean = false;
+  idUsuario = 0;
 
-  usuario: LoginUsuarioDto= new LoginUsuarioDto("","");
-  user:string = "";
-  contrasenia:string ="";
+  usuario: LoginUsuarioDto = new LoginUsuarioDto("", "");
+  user: string = "";
+  contrasenia: string = "";
 
   constructor(
-    private authService : AuthService,
+    private authService: AuthService,
     private tokenService: TokenService,
     private toastrService: ToastrService,
     private router: Router
@@ -26,18 +28,27 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onLogin():void{
+  onLogin(): void {
     this.usuario = new LoginUsuarioDto(this.user, this.contrasenia);
     this.authService.login(this.usuario).subscribe(
       data => {
-       //  console.log(data);
+        //  console.log(data);
         if (!data.token) {
           this.toastrService.error(data.response.message, 'Fail', {
             timeOut: 3000, positionClass: 'toast-top-center',
           });
         } else {
+
           this.tokenService.setToken(data.token);
-          this.router.navigate(['/listaUsuario']);
+          this.isArtista = this.tokenService.isArtista();
+          this.idUsuario = this.tokenService.getIdUsuario();
+          if(this.isArtista){
+            this.router.navigate(['/perfil/',this.idUsuario]);
+      
+          }else{
+            this.router.navigate(['/listaUsuario']);
+
+          }
         }
       },
       err => {

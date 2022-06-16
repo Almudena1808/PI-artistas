@@ -17,7 +17,7 @@ export class EditarContratoComponent implements OnInit {
   previsualizacion: any;
  
   
-  contrato: Contrato = new Contrato(false,"","","",0,0);
+  contrato: Contrato = new Contrato(false,"","","",0,0,"");
 
   constructor(
     private contratoService: ContratoService,
@@ -64,6 +64,6 @@ export class EditarContratoComponent implements OnInit {
 
   volver(): void {
     this.router.navigate(['/misespectaculos/',this.idUser]);
-  }
+  } 
 
 }

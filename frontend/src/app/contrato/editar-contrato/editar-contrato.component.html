@@ -30,15 +30,27 @@
                             <input type="text" id="fechaEvento" name="fechaEvento" [(ngModel)]="contrato.fechaEvento"
                                 [value]="contrato.fechaEvento">
                         </div>
-                        <p class="font-italic"><b>Fecha del Evento: </b>{{contrato.fechaEvento}} €</p>
+                        <p class="font-italic"><b>Fecha del Evento: </b>{{contrato.fechaEvento}}</p>
                     </div>
                 </div>
+                <div class="row mt4">
+                    <div class="col-12">
+                        <div hidden>
+                            <textarea id="mensaje" name="mensaje" [(ngModel)]="contrato.mensaje">{{contrato.mensaje}}</textarea>
+                        </div>
+                        <p *ngIf="contrato.mensaje==''"><b>Mensaje: </b>No hay ningún mensaje del empresario</p>
+
+                        <p *ngIf="contrato.mensaje!=''"><b>Mensaje: </b>{{contrato.mensaje}}</p>
+                    </div>
+                </div>
+
+
                 <div class="row mt-4">
-                    <div class="col-12 form-group">
-                        <div class="row ml-2">
-                            <div class="input-group-text">
+                    <div class="col-12 bg-white form-group">
+                        <div class="row ml-1">
+                            <div class="input-group-text  bg-white">
                                 <input type="radio" id="aceptado" name="aceptado" [(ngModel)]="contrato.aceptado"
-                                    [value]="true" required> &nbsp; <b>Aceptar evento</b><br>
+                                    [value]="true" required> &nbsp; <b>Aceptar evento</b>&nbsp;&nbsp;<br>
                                 <input type="radio" id="aceptado" name="aceptado" [(ngModel)]="contrato.aceptado"
                                     [value]="false" required> &nbsp; <b>Rechazar evento</b>
                             </div>

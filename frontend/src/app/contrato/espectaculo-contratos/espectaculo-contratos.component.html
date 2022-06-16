@@ -19,6 +19,11 @@
 
         </div>
         <div class="row">
+            <p *ngIf="c.mensaje==''"><b>Mensaje: </b>No hay mensaje</p>
+
+            <p *ngIf="c.mensaje!=''"><b>Mensaje: </b>{{c.mensaje}}</p>
+        </div>
+        <div class="row">
             <div *ngIf="c.fechaFirma==''">
                 <p><b>Fecha firmado: </b>----/--/--</p>
 

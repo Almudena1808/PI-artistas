@@ -23,6 +23,12 @@
                         <p class="font-italic"><b>Precio: </b>{{espec.precio}} €</p>
                     </div>
                 </div>
+                <div class="row mt-4">
+                    <div class="col-12">
+                        <b>Mensaje: </b><textarea class="form-control" id="mensaje" name="mensaje"
+                        [(ngModel)]="mensaje" required ></textarea>
+                    </div>
+                </div>
                 <div class="row mt-5">
                     <div class="col-6 form-group">
                         <p class="font-weight-bold" for="fechaEvento">Fecha del evento</p>

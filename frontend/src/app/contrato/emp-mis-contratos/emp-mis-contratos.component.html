@@ -9,6 +9,10 @@
 
         <p><b>Fecha que se solicitó: </b>{{cont.fechaSolicitud}}</p>
 
+        <p *ngIf="cont.mensaje==''"><b>Mensaje: </b>No hay mensaje</p>
+
+        <p *ngIf="cont.mensaje!=''"><b>Mensaje: </b>{{cont.mensaje}}</p>
+
         <div class="d-flex justify-content-center mt-5">
             <p *ngIf="cont.fechaFirma==''" class="pendiente"><b>PENDIENTE</b></p>
             <div *ngIf="cont.fechaFirma!=''">
@@ -16,7 +20,7 @@
                 <p *ngIf="cont.aceptado==true" class="aceptado "> ACEPTADO</p>
             </div>
         </div>
-      
+
     </div>
 </div>
 
